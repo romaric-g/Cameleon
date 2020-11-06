@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { settings } from 'ionicons/icons';
 import React from 'react';
 import Slider from '../../components/Slider/';
@@ -9,7 +9,7 @@ const Home: React.FC = (props) => {
 
   const openMoodList = React.useCallback(() => {
     (props as any).history.push('/home/themes');
-  }, [])
+  }, [props])
 
   const themes: Models.Theme[] = React.useMemo(() => {
     return [
