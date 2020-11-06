@@ -1,0 +1,26 @@
+.Slide {
+    position: relative;
+    width: 80%;
+    height: 90%;
+    border-radius: 40px;
+    box-shadow: 10px 10px 12px rgba(0,0,0,0.25);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Slide__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+}
+
+.Slide__text {
+    z-index: 10;
+    font-size: 60px;
+    font-family: 'Designer', sans-serif;
+}
