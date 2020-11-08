@@ -1,4 +1,4 @@
-import { IonButtons, IonContent, IonLabel, IonPage, IonSegment, IonSegmentButton, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonLabel, IonPage, IonSegment, IonSegmentButton, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import './index.css';
 

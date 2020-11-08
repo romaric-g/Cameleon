@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonApp, IonButton, IonContent, IonFooter, IonIcon, IonModal, IonPage, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, IonText, IonTitle, IonToolbar, setupConfig } from '@ionic/react';
+import { IonApp, IonContent, IonFooter, IonIcon, IonPage, IonRouterOutlet, IonTabBar, IonTabButton, setupConfig } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
 /* Core CSS required for Ionic components to work properly */

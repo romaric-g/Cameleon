@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonSlides, IonContent } from '@ionic/react';
+import { IonSlides } from '@ionic/react';
 import Models from '../../types/models';
 import Slide from './Slide/';
 
