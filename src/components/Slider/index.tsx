@@ -14,17 +14,13 @@ interface SliderProps {
     themes: Models.Theme[],
 }
 
-const Slider: React.FC<SliderProps> = (props) => {
+const Slider: React.FC<SliderProps> = ({ themes}) => (
+  <IonSlides options={slideOpts}>
+    {themes.map((theme) => (
+      <Slide theme={theme} key={theme.title} />
+    ))}
+  </IonSlides>
+);
 
-  return (
-    <IonContent>
-      <IonSlides options={slideOpts}>
-        {props.themes.map((theme) => (
-          <Slide theme={theme} key={theme.title} />
-        ))}
-      </IonSlides>
-    </IonContent>
-  );
-}
 
 export default Slider;

@@ -1,0 +1,9 @@
+.Search ion-toolbar {
+    --background: transparent;
+    --border-style: none;
+}
+
+.Search ion-searchbar {
+    --background: #254650;
+    --color: white;
+}

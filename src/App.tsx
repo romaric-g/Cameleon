@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonApp, IonRouterOutlet, setupConfig } from '@ionic/react';
+import { IonApp, IonButton, IonContent, IonFooter, IonIcon, IonModal, IonPage, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, IonText, IonTitle, IonToolbar, setupConfig } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
 /* Core CSS required for Ionic components to work properly */
@@ -20,22 +20,52 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import { Route } from 'react-router';
-import Tabs from './components/Tabs/';
+import { Redirect, Route } from 'react-router';
+import { compass, folderOpen, search } from 'ionicons/icons';
+import Home from './pages/Home';
+import ThemeList from './pages/ThemeList';
+import MusicPlayer from './pages/MusicPlayer';
+import Library from './pages/Library';
+import Search from './pages/Search';
 
 setupConfig({
   rippleEffect: false,
   tabButtonLayout: 'label-hide'
 });
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route path="/" component={Tabs} />
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <IonPage>
+          <IonContent>
+            <IonRouterOutlet>
+              <Route path="/home" component={Home} exact={true} />
+              <Route path="/library" component={Library} />
+              <Route path="/search" component={Search} />
+              <Route path="/themes" component={ThemeList} />
+              <Route path="/player" component={MusicPlayer} />
+              <Route path="/" render={() => <Redirect to="/home" />} exact={true} />
+            </IonRouterOutlet>
+          </IonContent>
+          <IonFooter>
+            <MusicPlayer />
+            <IonTabBar>
+              <IonTabButton tab="home" href="/home">
+                <IonIcon icon={compass} />
+              </IonTabButton>
+              <IonTabButton tab="library" href="/library">
+                <IonIcon icon={folderOpen} />
+              </IonTabButton>
+              <IonTabButton tab="search" href="/search">
+                <IonIcon icon={search} />
+              </IonTabButton>
+            </IonTabBar>
+          </IonFooter>
+        </IonPage>
+      </IonReactRouter>
+    </IonApp>
+  );
+}
 
 export default App;

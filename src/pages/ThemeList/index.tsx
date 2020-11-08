@@ -4,19 +4,20 @@ import Models from '../../types/models';
 import './index.css';
 
 interface ThemeListProps {
-  themes: Models.Theme[]
+  themes: Models.Theme[],
+  router: HTMLIonRouterOutletElement | null;
 }
 
-const ThemeList: React.FC<ThemeListProps> = ({ themes }) => {
+const ThemeList: React.FC<ThemeListProps> = ({ themes, router }) => {
 
   return (
     <IonPage className="ThemeList">
       <IonHeader>
         <IonToolbar>
-            <IonButtons slot="start">
-                <IonBackButton />
-            </IonButtons>
-            <IonTitle>Tous les moods</IonTitle>
+          <IonButtons slot="start">
+            <IonBackButton />
+          </IonButtons>
+          <IonTitle>Tous les moods</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
