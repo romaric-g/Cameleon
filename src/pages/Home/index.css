@@ -18,7 +18,7 @@
     height: 35px;
 }
 
-.backimage {
+.Home .backimage {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -29,7 +29,7 @@
     filter: blur(8px);
 }
 
-.cameleon-title {
+.Home .cameleon-title {
     font-family: 'Designer', sans-serif!important;
     font-size: 2rem;
 }

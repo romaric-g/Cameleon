@@ -10,3 +10,34 @@ ion-modal ion-toolbar {
 ion-modal ion-title {
     text-align: center;
 }
+
+ion-modal .backimage {
+    position: absolute;
+    filter: blur(14px);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+ion-modal .backimage img {
+    object-fit: cover;
+}
+
+ion-modal ion-content {
+    --background: transparent;
+}
+
+ion-modal ion-footer {
+    padding: 20px 40px;
+}
+
+ion-modal ion-footer ion-buttons {
+    margin-top: 15px;
+    justify-content: space-around;
+}
+
+ion-modal ion-footer ion-buttons ion-button:nth-child(3) {
+    font-size: 4rem;
+    height: 5rem;
+}
