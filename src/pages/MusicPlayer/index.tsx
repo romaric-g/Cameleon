@@ -1,5 +1,5 @@
-import { IonButton, IonButtons, IonContent, IonFooter, IonIcon, IonImg, IonItem, IonLabel, IonModal, IonProgressBar, IonText, IonThumbnail, IonTitle, IonToolbar } from '@ionic/react';
-import { add, arrowDown, folderSharp, heart, heartOutline, play, playCircle, playForward, playSkipBack, playSkipForward, repeat, stopwatch, timer } from 'ionicons/icons';
+import { IonButton, IonButtons, IonContent, IonFooter, IonIcon, IonItem, IonLabel, IonModal, IonProgressBar, IonText, IonThumbnail, IonTitle, IonToolbar } from '@ionic/react';
+import { add, arrowDown, folderSharp, heartOutline, playCircle, playSkipBack, playSkipForward, repeat, stopwatch } from 'ionicons/icons';
 import React from 'react';
 import './index.css';
 
