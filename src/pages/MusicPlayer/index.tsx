@@ -1,5 +1,5 @@
-import { IonButton, IonButtons, IonContent, IonFooter, IonIcon, IonItem, IonLabel, IonModal, IonProgressBar, IonText, IonThumbnail, IonTitle, IonToolbar } from '@ionic/react';
-import { arrowDown, folderSharp, play, playCircle, playForward, playSkipBack, playSkipForward, repeat, stopwatch, timer } from 'ionicons/icons';
+import { IonButton, IonButtons, IonContent, IonFooter, IonIcon, IonImg, IonItem, IonLabel, IonModal, IonProgressBar, IonText, IonThumbnail, IonTitle, IonToolbar } from '@ionic/react';
+import { add, arrowDown, folderSharp, heart, heartOutline, play, playCircle, playForward, playSkipBack, playSkipForward, repeat, stopwatch, timer } from 'ionicons/icons';
 import React from 'react';
 import './index.css';
 
@@ -33,16 +33,26 @@ const MusicPlayer: React.FC = () => {
           </IonButtons>
         </IonToolbar>
         <IonContent>
-          <IonText>TEST</IonText>
+          <div className="trackInfos" slot="fixed">
+            <img src="/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg" alt="" />
+            <IonButtons>
+              <IonButton color="light"><IonIcon icon={add} /></IonButton>
+              <IonButton color="light"><IonIcon icon={heartOutline} /></IonButton>
+            </IonButtons>
+            <div>
+              <IonTitle color="light">Go Solo</IonTitle> 
+              <IonText color="light">Tom Rosenthal</IonText> 
+            </div>
+          </div>
         </IonContent>
         <IonFooter>
           <IonProgressBar value={0.5}></IonProgressBar>
           <IonButtons>
-            <IonButton><IonIcon icon={stopwatch} /></IonButton>
-            <IonButton><IonIcon icon={playSkipBack} /></IonButton>
-            <IonButton><IonIcon icon={playCircle} /></IonButton>
-            <IonButton><IonIcon icon={playSkipForward} /></IonButton>
-            <IonButton><IonIcon icon={repeat} /></IonButton>
+            <IonButton color="light"><IonIcon icon={stopwatch} /></IonButton>
+            <IonButton color="light"><IonIcon icon={playSkipBack} /></IonButton>
+            <IonButton color="light"><IonIcon icon={playCircle} /></IonButton>
+            <IonButton color="light"><IonIcon icon={playSkipForward} /></IonButton>
+            <IonButton color="light"><IonIcon icon={repeat} /></IonButton>
           </IonButtons>
         </IonFooter>
       </IonModal>

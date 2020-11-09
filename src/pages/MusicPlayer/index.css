@@ -26,6 +26,34 @@ ion-modal .backimage img {
 
 ion-modal ion-content {
     --background: transparent;
+    --color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+ion-modal ion-content .trackInfos {
+    position: relative!important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ion-modal .trackInfos img {
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
+    object-fit: cover;
+    box-shadow: 10px 10px 12px rgba(0,0,0,0.25);
+}
+
+ion-modal .trackInfos ion-buttons {
+    margin: 15px 0;
+}
+
+ion-modal .trackInfos ion-button {
+    font-size: 1.2rem;
+    height: 2rem;
 }
 
 ion-modal ion-footer {
