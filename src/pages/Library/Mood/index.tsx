@@ -1,4 +1,3 @@
-import { IonPage } from '@ionic/react';
 import React from 'react';
 import PlaylistPreview from '../../../components/PlaylistPreview';
 import Models from '../../../types/models';
@@ -30,11 +29,13 @@ const Mood: React.FC = () => {
             }
         ]
         }, []);
-
+    
     return (
-        <IonPage className="Mood">
-            <PlaylistPreview playlistPreview={playlists[0]}/>
-        </IonPage>
+        <div className="Mood">
+            { playlists.map((playlist) => (
+                <PlaylistPreview playlistPreview={playlist} key={playlist.title} />
+            ))}
+        </div>
     );
 };
 

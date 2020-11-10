@@ -1,13 +1,13 @@
-import { IonPage } from '@ionic/react';
+import { IonText } from '@ionic/react';
 import React from 'react';
 import './index.css';
 
 const Like: React.FC = () => {
 
   return (
-    <IonPage className="Like">
-
-    </IonPage>
+    <div className="Like">
+        <IonText>Salutation</IonText>
+    </div>
   );
 };
 

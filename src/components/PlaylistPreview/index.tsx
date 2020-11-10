@@ -1,13 +1,10 @@
 import {
   IonButton,
   IonButtons,
-  IonContent,
   IonIcon,
   IonItem,
-  IonLabel,
   IonText,
   IonThumbnail,
-  IonTitle,
 } from "@ionic/react";
 import { ellipsisVertical } from "ionicons/icons";
 import React from "react";
@@ -22,29 +19,22 @@ const PlaylistPreview: React.FC<PlaylistPreviewProps> = ({playlistPreview}) => {
  
 
   return (
-    <IonItem className="PlaylistPreview">
-      <div slot="start">
+    <IonItem lines="none" className="PlaylistPreview">
+      <div className="PlaylistPreview__start" slot="start">
         <IonThumbnail>
           <img
             src={playlistPreview.image}
             alt=""
           />
         </IonThumbnail>
-        <div>
-          <IonTitle>
-              {playlistPreview.title}
-          </IonTitle>
-
-          <IonText>
-              {playlistPreview.titleAmount} titre{playlistPreview.titleAmount > 1 && "s"}
-         </IonText>
+        <div className="PlaylistPreview__texts">
+          <IonText>{playlistPreview.title}</IonText>
+          <IonText>{playlistPreview.titleAmount} titre{playlistPreview.titleAmount > 1 && "s"}</IonText>
         </div>
       </div>
       <IonButtons slot="end">
         <IonButton>
-            <IonIcon icon={ellipsisVertical}>
-
-            </IonIcon>
+            <IonIcon icon={ellipsisVertical} />
         </IonButton>
       </IonButtons>
     </IonItem>
