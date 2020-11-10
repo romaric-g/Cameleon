@@ -6,6 +6,12 @@ declare namespace Models {
     image: string,
   }
 
+  interface PlaylistPreview {
+    title: string,
+    image: string,
+    titleAmount: number,
+  }
+
 }
 
 export default Models;
