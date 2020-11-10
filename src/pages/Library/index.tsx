@@ -1,15 +1,18 @@
-import { IonContent, IonLabel, IonPage, IonSegment, IonSegmentButton, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonLabel, IonPage, IonRouterOutlet, IonSegment, IonSegmentButton, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
+import { Redirect, Route } from 'react-router';
 import './index.css';
+import Like from './Like';
+import Mood from './Mood';
 
 const Library: React.FC = () => {
 
   return (
     <IonPage className="Library">
-      <IonToolbar>
-        <IonTitle>Bibliothèque</IonTitle>
-      </IonToolbar>
-      <IonContent fullscreen>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Bibliothèque</IonTitle>
+        </IonToolbar>
         <IonSegment value="moods" onIonChange={e => console.log('Segment selected', e.detail.value)}>
           <IonSegmentButton value="moods">
             <IonLabel>Mes moods</IonLabel>
@@ -18,6 +21,9 @@ const Library: React.FC = () => {
             <IonLabel>Titre likés</IonLabel>
           </IonSegmentButton>
         </IonSegment>
+      </IonHeader>
+      <IonContent>
+        <Mood/>
       </IonContent>
     </IonPage>
   );

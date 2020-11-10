@@ -12,6 +12,7 @@ import {
 import { ellipsisVertical } from "ionicons/icons";
 import React from "react";
 import Models from "../../types/models";
+import './index.css';
 
 interface PlaylistPreviewProps {
   playlistPreview: Models.PlaylistPreview;
@@ -21,9 +22,9 @@ const PlaylistPreview: React.FC<PlaylistPreviewProps> = ({playlistPreview}) => {
  
 
   return (
-    <IonItem>
-      <IonContent slot="start">
-        <IonThumbnail slot="start">
+    <IonItem className="PlaylistPreview">
+      <div slot="start">
+        <IonThumbnail>
           <img
             src={playlistPreview.image}
             alt=""
@@ -38,7 +39,7 @@ const PlaylistPreview: React.FC<PlaylistPreviewProps> = ({playlistPreview}) => {
               {playlistPreview.titleAmount} titre{playlistPreview.titleAmount > 1 && "s"}
          </IonText>
         </div>
-      </IonContent>
+      </div>
       <IonButtons slot="end">
         <IonButton>
             <IonIcon icon={ellipsisVertical}>
