@@ -11,7 +11,6 @@ declare namespace Models {
     image: string,
     titleAmount: number,
   }
-
 }
 
 export default Models;
