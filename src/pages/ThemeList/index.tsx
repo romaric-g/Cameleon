@@ -1,7 +1,7 @@
 import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonImg, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import Models from '../../types/models';
-import './index.css';
+import './index.scss';
 
 interface ThemeListProps {
   themes: Models.Theme[],
