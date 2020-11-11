@@ -1,14 +1,8 @@
 import {
-  IonButton,
-  IonButtons,
-  IonContent,
-  IonIcon,
   IonItem,
   IonText,
   IonThumbnail,
-  IonTitle,
 } from "@ionic/react";
-import { ellipsisVertical } from "ionicons/icons";
 import React from "react";
 import Models from "../../types/models";
 

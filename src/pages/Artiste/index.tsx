@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonItem, IonPage, IonText, IonThumbnail, IonTitle } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonText } from '@ionic/react';
 import React from 'react';
 import SmallMoodCard from '../../components/SmallMoodCard';
 import TrackPreview from '../../components/TrackPreview';
