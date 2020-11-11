@@ -27,6 +27,8 @@ import ThemeList from './pages/ThemeList';
 import MusicPlayer from './pages/MusicPlayer';
 import Library from './pages/Library';
 import Search from './pages/Search';
+import Playlist from './pages/Playlist';
+import Artiste from './pages/Artiste';
 
 setupConfig({
   rippleEffect: false,
@@ -45,6 +47,8 @@ const App: React.FC = () => {
               <Route path="/search" component={Search} />
               <Route path="/themes" component={ThemeList} />
               <Route path="/player" component={MusicPlayer} />
+              <Route path='/artist/personal/:id' component={Artiste} />
+              <Route path='/library/personal/:id' component={Playlist} />
               <Route path="/" render={() => <Redirect to="/home" />} exact={true} />
             </IonRouterOutlet>
           </IonContent>

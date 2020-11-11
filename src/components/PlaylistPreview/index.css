@@ -1,0 +1,17 @@
+.PlaylistPreview {
+    margin: 20px 0;
+}
+
+.PlaylistPreview__start {
+    display: flex;
+}
+
+.PlaylistPreview__texts {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.PlaylistPreview__texts ion-text:first-child {
+    font-size: 1.4em;
+}

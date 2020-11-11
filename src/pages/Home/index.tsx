@@ -17,15 +17,47 @@ const Home: React.FC = () => {
   const themes: Models.Theme[] = React.useMemo(() => {
     return [
       {
-        title: 'triste',
+        title: 'chagrin',
         image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
       },
       {
-        title: 'happy',
+        title: 'mélancolique',
         image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
       },
       {
-        title: 'dance',
+        title: 'frénétique',
+        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
+      },
+      {
+        title: 'rebelle',
+        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
+      },
+      {
+        title: 'sensuel',
+        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
+      },
+      {
+        title: 'confiant',
+        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
+      },
+      {
+        title: 'joyeux',
+        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
+      },
+      {
+        title: 'enthousiaste',
+        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
+      },
+      {
+        title: 'concentré',
+        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
+      },
+      {
+        title: 'héroïque',
+        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
+      },
+      {
+        title: 'rêveur',
         image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
       }
     ]
