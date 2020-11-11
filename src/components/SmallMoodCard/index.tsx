@@ -3,20 +3,20 @@ import React from "react";
 import Models from "../../types/models";
 
 interface SmallMoodCardsProps {
-  smallMoodCards: Models.Mood;
+  mood: Models.Mood;
 }
 
-const SmallMoodCards: React.FC<SmallMoodCardsProps> = ({ smallMoodCards }) => {
+const SmallMoodCard: React.FC<SmallMoodCardsProps> = ({ mood }) => {
   return (
     <IonItem>
       <IonContent>
         <IonThumbnail>
-          <img src={smallMoodCards.image} alt="" />
+          <img src={mood.image} alt="" />
         </IonThumbnail>
-        <IonTitle>{smallMoodCards.name}</IonTitle>
+        <IonTitle>{mood.name}</IonTitle>
       </IonContent>
     </IonItem>
   );
 };
 
-export default SmallMoodCards;
+export default SmallMoodCard;

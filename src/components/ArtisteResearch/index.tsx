@@ -3,7 +3,7 @@ import React from "react";
 import Models from "../../types/models";
 
 interface ArtisteProfilResearchProps {
-  artisteProfilResearch: Models.ArtisteProfil;
+  artisteProfilResearch: Models.Artist;
 }
 
 const ArtisteProfilResearch: React.FC<ArtisteProfilResearchProps> = ({ artisteProfilResearch }) => {
