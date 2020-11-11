@@ -7,7 +7,6 @@ interface ArtisteProfilResearchProps {
 }
 
 const ArtisteProfilResearch: React.FC<ArtisteProfilResearchProps> = ({ artisteProfilResearch }) => {
-
   return (
     <IonItem>
       <IonContent slot="start">
