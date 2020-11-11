@@ -11,8 +11,6 @@ declare namespace Models {
     image: string,
     titleAmount: number,
   }
-<<<<<<< HEAD
-=======
 
   interface ArtisteProfil {
     name: string,
@@ -31,7 +29,6 @@ declare namespace Models {
     artist: string,
   }
 
->>>>>>> 9abaee7fba14b8f926cafba57b2106e58ae0ffa9
 }
 
 export default Models;
