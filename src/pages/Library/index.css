@@ -5,3 +5,8 @@
 .Library .swiper-slide > * {
     width: 100%!important;
 }
+
+.Library .cameleon-title {
+    font-family: 'Designer', sans-serif!important;
+    font-size: 2rem;
+}

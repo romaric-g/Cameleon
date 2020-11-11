@@ -8,24 +8,24 @@ const Mood: React.FC = () => {
     const playlists: Models.PlaylistPreview[] = React.useMemo(() => {
         return [
             {
-                title: "triste",
-                image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
-                titleAmount: 85,
+                title: "jour de pluie",
+                image: "/assets/image/Sensuel_Plan de travail 1.jpg",
+                titleAmount: 12,
             },
             {
-                title: "rêveur",
-                image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
-                titleAmount: 2,
+                title: "lundi matin",
+                image: "/assets/image/Sensuel_Plan de travail 1.jpg",
+                titleAmount: 6,
             },
             {
-                title: "energique",
-                image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
-                titleAmount: 14,
+                title: "sport",
+                image: "/assets/image/Sensuel_Plan de travail 1.jpg",
+                titleAmount: 1,
             },
             {
-                title: "cool",
-                image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
-                titleAmount: 15,
+                title: "go crazy",
+                image: "/assets/image/Sensuel_Plan de travail 1.jpg",
+                titleAmount: 25,
             }
         ]
         }, []);
