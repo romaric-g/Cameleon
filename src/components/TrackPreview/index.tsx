@@ -21,7 +21,7 @@ const TrackPreview: React.FC<TrackPreviewProps> = ({trackPreview}) => {
 
   return (
     <IonItem>
-      <IonContent slot="start">
+      <div slot="start">
         <IonThumbnail slot="start">
           <img
             src={trackPreview.image}
@@ -29,14 +29,14 @@ const TrackPreview: React.FC<TrackPreviewProps> = ({trackPreview}) => {
           />
         </IonThumbnail>
         <div>
-          <IonTitle>
-              {trackPreview.title}
-          </IonTitle>
           <IonText>
-          {trackPreview.artist}
+              {trackPreview.title}
+          </IonText>
+          <IonText>
+          {trackPreview.artist_name}
          </IonText>
         </div>
-      </IonContent>
+      </div>
     </IonItem>
   );
 };

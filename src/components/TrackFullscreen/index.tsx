@@ -45,7 +45,7 @@ const TrackFullscreen: React.FC<TrackFullscreenProps> = ({trackFullscreen}) => {
               {trackFullscreen.title}
           </IonTitle>
           <IonText>
-          {trackFullscreen.artist}
+          {trackFullscreen.artist_name}
          </IonText>
         </div>
         </IonContent>

@@ -1,3 +1,7 @@
 .Library ion-toolbar {
     --background: transparent;
 }
+
+.Library .swiper-slide > * {
+    width: 100%!important;
+}

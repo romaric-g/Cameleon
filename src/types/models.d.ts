@@ -12,10 +12,12 @@ declare namespace Models {
     titleAmount: number,
   }
 
-  interface ArtisteProfil {
+  interface Artist {
+    id: number;
     name: string,
     image: string,
     moods: Mood[],
+    tracks: Track[],
   }
 
   interface Mood {
@@ -26,7 +28,8 @@ declare namespace Models {
   interface Track {
     title: string,
     image: string,
-    artist: string,
+    artist_name: string,
+    artist_id: number,
   }
 
 }
