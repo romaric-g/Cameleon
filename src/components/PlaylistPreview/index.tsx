@@ -42,7 +42,6 @@ const PlaylistPreview: React.FC<PlaylistPreviewProps> = ({playlistPreview}) => {
       <IonButtons slot="end">
         <IonButton>
             <IonIcon icon={ellipsisVertical}>
-
             </IonIcon>
         </IonButton>
       </IonButtons>
