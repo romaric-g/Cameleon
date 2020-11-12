@@ -15,17 +15,17 @@ const Artiste: React.FC = () => {
             moods: [
                 {
                     name: "Calme",
-                    image: "./",
+                    image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
                 },
                 {
                     name: "Triste",
-                    image: "./",
+                    image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
                 },
             ],
             tracks: [
                 {
                     title: "5G",
-                    image: "./",
+                    image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
                     artist_name: "Booba",
                     artist_id: 1,
                 }
@@ -34,14 +34,14 @@ const Artiste: React.FC = () => {
     }, []);
     
     return (
-        <IonPage>
+        <IonPage className="Artiste">
             <IonHeader>
-                <img src={artiste.image} alt="" />
+                <img src="/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg" alt="" />
                 <IonText>{artiste.name}</IonText>
             </IonHeader>
             <IonContent>
-                <div className="Mood">
-                    <IonText>Moods associés</IonText>
+                <div className="Mood ion-text-center" >
+                    <IonText >Moods associés</IonText>
                     {
                         artiste.moods.map((mood) => <SmallMoodCard mood={mood} />)
                     }
