@@ -1,0 +1,74 @@
+.Artiste {
+  ion-content {
+    backdrop-filter: blur(6px);
+    display: flex;
+  }
+
+  &__cover {
+    margin-left: auto;
+    margin-right: auto;
+    size: 97px !important;
+    max-width: 97px !important;
+    align-content: center;
+    display: block;
+    width: 97px;
+    height: 97px;
+  }
+
+  ion-header {
+    font-family: "Gotham" !important;
+    font-weight: lighter;
+    font-size: 36px;
+    text-align: center;
+    padding-top: 20px;
+    position: relative;
+    padding-bottom: 20px;
+    
+  }
+  
+  &__background  {  
+    height:100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    filter: blur(4px);
+
+    &__image {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+
+  }
+
+  &__moods {
+    font-size: 16px;
+    font-family: "Gotham" !important;
+    font-weight: normal;
+  
+    &__moodList {
+      margin-top: 10px;
+      display: flex;
+      padding-left:20px;
+    }
+  }
+
+  &__tracksList {
+    font-size: 16px;
+    font-family: "Gotham" !important;
+    font-weight: normal;
+    margin-top: 10px;
+  }
+
+  &__back {
+     padding-left: 20px;
+   }
+
+   &__setting {
+    padding-left: 260px;
+  }
+}
