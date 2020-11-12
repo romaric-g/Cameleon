@@ -1,6 +1,7 @@
-import { IonContent, IonItem, IonThumbnail, IonTitle } from "@ionic/react";
+import {IonThumbnail, IonTitle } from "@ionic/react";
 import React from "react";
 import Models from "../../types/models";
+import "./index.scss"
 
 interface SmallMoodCardsProps {
   mood: Models.Mood;
@@ -8,14 +9,15 @@ interface SmallMoodCardsProps {
 
 const SmallMoodCard: React.FC<SmallMoodCardsProps> = ({ mood }) => {
   return (
-    <IonItem>
-      <IonContent>
+    <div className="SmallMoodCard">
+      <div>
+      <IonTitle>{mood.name}</IonTitle>
         <IonThumbnail>
           <img src={mood.image} alt="" />
+          <IonTitle>{mood.name}</IonTitle>
         </IonThumbnail>
-        <IonTitle>{mood.name}</IonTitle>
-      </IonContent>
-    </IonItem>
+      </div>
+    </div>
   );
 };
 
