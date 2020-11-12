@@ -17,6 +17,7 @@ const ThemeList: React.FC<ThemeListProps> = ({ themes, router }) => {
           <IonButtons slot="start">
             <IonBackButton />
           </IonButtons>
+          <IonTitle className="cameleon-title">Cameleon</IonTitle>
           <IonTitle>TOUS LES MOODS</IonTitle>
         </IonToolbar>
       </IonHeader>
