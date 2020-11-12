@@ -88,14 +88,14 @@ const Artiste: React.FC = () => {
         <div className="Artiste__moods ion-text-center">
           <IonText>Moods associés</IonText>
           <div className="Artiste__moods__moodList">
-            {artiste.moods.map((mood) => (
+            {artiste.moods?.map((mood) => (
               <SmallMoodCard mood={mood} />
             ))}
           </div>
         </div>
         <div className="Artiste__tracksList ion-text-center">
           <IonText>Titres</IonText>
-          {artiste.tracks.map((track) => (
+          {artiste.tracks?.map((track) => (
             <TrackPreview trackPreview={track} />
           ))}
         </div>
