@@ -1,5 +1,6 @@
 .ThemeList ion-toolbar {
-    --background: transparent;
+    background: transparent;
+  
 }
 
 .ThemeList .themes {
@@ -7,23 +8,92 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0 20px;
+  
+    
 }
 
 .ThemeList .themes > .theme {
     width: 50%;
     padding: 2px;
+   
+}
+
+.themesensuel{
+    font-family: 'Raleway', sans-serif!important;
+    color:white;
+    font-size: 20px;
+    position: absolute;
+    z-index: 1;
+    text-transform: capitalize
+}
+
+.themereve{
+    font-family: 'Raleway', sans-serif!important;
+    color:white;
+    font-size: 20px;
+    position: absolute;
+    z-index: 1;
+    text-transform: capitalize
+}
+
+.themerebelle{
+    font-family: 'Raleway', sans-serif!important;
+    color:white;
+    font-size: 20px;
+    position: absolute;
+    z-index: 1;
+    text-transform: capitalize
+}
+
+.themejoie{
+    font-family: 'Raleway', sans-serif!important;
+    color:white;
+    font-size:20px;
+    position: absolute;
+    z-index: 1;
+    text-transform: capitalize
+}
+
+.thememelan{
+    font-family: 'Raleway', sans-serif!important;
+    color:white;
+    font-size:20px;
+    position: absolute;
+    z-index: 1;
+    text-transform: capitalize
+}
+
+.themefrenesie{
+    font-family: 'Raleway', sans-serif!important;
+    color:white;
+    font-size: 20px;
+    position: absolute;
+    z-index: 1;
+    text-transform: capitalize
 }
 
 .ThemeList ion-button {
+    
     --background: transparent;
     --padding-start: 0;
     --padding-end: 0;
     --border-radius: 0;
     --border-style: none;
     height: 150px;
+ 
 }
 
 .ThemeList ion-img {
     object-fit: cover;
     width: 100%;
+
+    
+}
+
+.ThemeList ion-title {
+
+    padding-top: 65px ;
+    color: white;
+    font-family: 'Designer', sans-serif!important;
+    font-size: 2rem;
 }
