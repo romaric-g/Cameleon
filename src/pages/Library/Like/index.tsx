@@ -5,7 +5,7 @@ import './index.css';
 
 const Like: React.FC = () => {
 
-    const playlists: Models.PlaylistPreview[] = React.useMemo(() => {
+    const playlists: Models.Playlist[] = React.useMemo(() => {
         return [
             {
                 title: "triste",

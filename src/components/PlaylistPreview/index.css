@@ -1,5 +1,8 @@
 .PlaylistPreview {
     margin: 20px 0;
+    margin-bottom: -10px;
+    --background: none;
+    opacity:1;
 }
 
 .PlaylistPreview__start {
@@ -10,8 +13,13 @@
     display: flex;
     flex-direction: column;
     margin-left: 20px;
+    font-family: 'Gotham'!important;
+    font-weight: normal;
+    font-size: 14px;
+    font-weight: lighter;
 }
 
 .PlaylistPreview__texts ion-text:first-child {
-    font-size: 1.4em;
+    font-size: 14px;
+    font-weight: normal;
 }

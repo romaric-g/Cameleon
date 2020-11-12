@@ -6,10 +6,12 @@ declare namespace Models {
     image: string,
   }
 
-  interface PlaylistPreview {
+  interface Playlist {
     title: string,
     image: string,
     titleAmount: number,
+    tracks?: Track[],
+    
   }
 
   interface Artist {

@@ -12,7 +12,7 @@ import Models from "../../types/models";
 import './index.css';
 
 interface PlaylistPreviewProps {
-  playlistPreview: Models.PlaylistPreview;
+  playlistPreview: Models.Playlist;
 }
 
 const PlaylistPreview: React.FC<PlaylistPreviewProps> = ({playlistPreview}) => {
