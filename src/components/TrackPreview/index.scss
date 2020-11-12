@@ -1,0 +1,23 @@
+.TrackPreview {
+    margin: 20px 0;
+    margin-bottom: -10px;
+}
+
+.TrackPreview__start {
+    display: flex;
+}
+
+.TrackPreview__texts {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    font-family: 'Gotham'!important;
+    font-weight: normal;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.TrackPreview__texts ion-text:first-child {
+    font-size: 14px;
+    font-weight: normal;
+}
