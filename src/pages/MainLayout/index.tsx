@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect, Route } from 'react-router';
 import { compass, folderOpen, search } from 'ionicons/icons';
 
-import { IonContent, IonFooter, IonIcon, IonPage, IonRouterOutlet, IonTabBar, IonTabButton, IonText } from '@ionic/react';
+import { IonContent, IonFooter, IonIcon, IonPage, IonRouterOutlet, IonTabBar, IonTabButton } from '@ionic/react';
 import Home from '../Home';
 import Library from '../Library';
 import Search from '../Search';
@@ -10,7 +10,6 @@ import ThemeList from '../ThemeList';
 import MusicPlayer from '../MusicPlayer';
 import Artiste from '../Artiste';
 import Playlist from '../Playlist';
-import SpotifyConnect from '../Auth';
 
 const MainLayout: React.FC = () => {
 

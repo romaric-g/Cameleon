@@ -1,14 +1,14 @@
 import { IonButton, IonContent, IonHeader, IonPage, IonText } from '@ionic/react';
 import React from 'react';
 import { useCookies } from 'react-cookie';
-import { useHistory, useLocation, useParams } from "react-router";
+import { useHistory, useLocation } from "react-router";
 
 function getQueryVariable(search: string, variable: string) {
     var query = search.substring(1);
     var vars = query.split('&');
     for (var i = 0; i < vars.length; i++) {
         var pair = vars[i].split('=');
-        if (decodeURIComponent(pair[0]) == variable) {
+        if (decodeURIComponent(pair[0]) === variable) {
             return decodeURIComponent(pair[1]);
         }
     }
@@ -20,7 +20,7 @@ const Auth: React.FC = () => {
     
     const history = useHistory()
     const location = useLocation()
-    const [cookies, setCookie, removeCookie] = useCookies([cameleonTokenKey]);
+    const [, setCookie] = useCookies([cameleonTokenKey]);
 
     const token = getQueryVariable(location.search, 'token');
     const error = getQueryVariable(location.search, 'error');

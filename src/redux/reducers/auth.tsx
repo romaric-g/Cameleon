@@ -1,5 +1,7 @@
 import { SET_SPOTIFY_TOKEN } from '../constants'
 
+
+
 const auth = (state: any, action: any) => {
 	switch (action.type) {
 		case SET_SPOTIFY_TOKEN:

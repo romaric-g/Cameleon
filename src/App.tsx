@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonApp, IonButton, IonContent, IonFooter, IonIcon, IonPage, IonRouterOutlet, IonTabBar, IonTabButton, IonText, setupConfig } from '@ionic/react';
+import { IonApp, IonRouterOutlet, setupConfig } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
 /* Core CSS required for Ionic components to work properly */
@@ -21,20 +21,13 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import { Route } from 'react-router';
-import Home from './pages/Home';
-
-import { connect } from 'react-redux'
-import SpotifyConnect from './pages/Auth';
 import Auth from './pages/Auth';
 import MainLayout from './pages/MainLayout';
-import { useCookies } from 'react-cookie';
 
 setupConfig({
   rippleEffect: false,
   tabButtonLayout: 'label-hide'
 });
-
-const cameleonTokenKey = 'cameleon_token';
 
 const App: React.FC = () => {
   
@@ -50,10 +43,10 @@ const App: React.FC = () => {
   );
 }
 
-function mapStateToProps(state: any) {
-  return {
-    spotifyToken: state.spotifyToken
-  };
-}
+// function mapStateToProps(state: any) {
+//   return {
+//     spotifyToken: state.spotifyToken
+//   };
+// }
 
 export default (App);

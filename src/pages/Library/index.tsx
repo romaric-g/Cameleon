@@ -1,9 +1,8 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonLabel, IonPage, IonSegment, IonSegmentButton, IonSlide, IonSlides, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonLabel, IonPage, IonSegment, IonSegmentButton, IonSlide, IonSlides, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import Like from './Like';
 import Mood from './Mood';
 import './index.css';
-import { settings } from 'ionicons/icons';
 
 const Library: React.FC = () => {
 
@@ -46,12 +45,6 @@ const Library: React.FC = () => {
     <IonPage className="Library">
       <IonHeader>
         <IonToolbar>
-          <IonTitle className="cameleon-title">Cameleon</IonTitle>
-          <IonButtons slot="end">
-            <IonButton>
-              <IonIcon icon={settings} />
-            </IonButton>
-          </IonButtons>
           <IonTitle>Bibliothèque</IonTitle>
         </IonToolbar>
         <IonSegment value="moods" onIonChange={onSegmentChange}>

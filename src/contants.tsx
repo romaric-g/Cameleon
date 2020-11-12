@@ -1,0 +1,1 @@
+export const cameleonTokenKey = 'cameleon_token';
