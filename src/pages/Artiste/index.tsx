@@ -43,13 +43,13 @@ const Artiste: React.FC = () => {
                 <div className="Mood">
                     <IonText>Moods associés</IonText>
                     {
-                        artiste.moods.map((mood) => <SmallMoodCard mood={mood} />)
+                        artiste.moods?.map((mood) => <SmallMoodCard mood={mood} />)
                     }
                 </div>
                 <div>
                     <IonText>Titres</IonText>
                     {
-                        artiste.tracks.map((track) => <TrackPreview trackPreview={track} />)
+                        artiste.tracks?.map((track) => <TrackPreview trackPreview={track} />)
                     }
                 </div>
             </IonContent>

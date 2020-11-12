@@ -16,8 +16,8 @@ declare namespace Models {
     id: number;
     name: string,
     image: string,
-    moods: Mood[],
-    tracks: Track[],
+    moods?: Mood[],
+    tracks?: Track[],
   }
 
   interface Mood {

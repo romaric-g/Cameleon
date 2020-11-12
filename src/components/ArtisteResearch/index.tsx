@@ -2,21 +2,21 @@ import { IonContent, IonItem, IonThumbnail, IonTitle } from "@ionic/react";
 import React from "react";
 import Models from "../../types/models";
 
-interface ArtisteProfilResearchProps {
-  artisteProfilResearch: Models.Artist;
+interface ArtistProfilResearchProps {
+  artist: Models.Artist;
 }
 
-const ArtisteProfilResearch: React.FC<ArtisteProfilResearchProps> = ({ artisteProfilResearch }) => {
+const ArtistProfilResearch: React.FC<ArtistProfilResearchProps> = ({ artist }) => {
   return (
     <IonItem>
       <IonContent slot="start">
         <IonThumbnail>
-          <img src={artisteProfilResearch.image} alt="" />
+          <img src={artist.image} alt="" />
         </IonThumbnail>
-        <IonTitle>{artisteProfilResearch.name}</IonTitle>
+        <IonTitle>{artist.name}</IonTitle>
       </IonContent>
     </IonItem>
   );
 };
 
-export default ArtisteProfilResearch;
+export default ArtistProfilResearch;
