@@ -1,0 +1,67 @@
+.Playlist {
+    ion-content {
+      display: flex;
+      overflow: hidden;
+      z-index: 0 ;
+      --background: transparent;
+    }
+  
+
+    ion-header {
+      font-family: "designer" !important;
+      font-size: 36px;
+      text-align: center;
+      padding-top: 20px;
+      position: relative;
+      padding-bottom: 20px;
+    
+      
+    }
+
+
+    &__titles {
+        font-size: 16px;
+        font-family: "Gotham" !important;
+        font-weight: lighter;
+    }
+
+    &__lecture {
+        font-size: 12px;
+        font-family: "Gotham" !important;
+        font-weight: normal;
+        margin-top: 30px;
+        
+    }
+    
+    &__background  {  
+      height:100%;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      filter: blur(4px);
+      z-index: -1;
+  
+      &__image {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  
+  
+    &__tracksList {
+      font-size: 16px;
+      font-family: "Gotham" !important;
+      font-weight: normal;
+      margin-top: 10px;
+    }
+  
+    &__back {
+       padding-left: 20px;
+     }
+  
+  }
+  

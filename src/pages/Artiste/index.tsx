@@ -12,7 +12,7 @@ import SmallMoodCard from "../../components/SmallMoodCard";
 import TrackPreview from "../../components/TrackPreview";
 import Models from "../../types/models";
 import "./index.scss";
-import { chevronBackCircleOutline, settingsOutline } from "ionicons/icons";
+import { chevronBackCircleOutline} from "ionicons/icons";
 
 const Artiste: React.FC = () => {
   const artiste: Models.Artist = React.useMemo(() => {
@@ -65,9 +65,6 @@ const Artiste: React.FC = () => {
         <IonButtons>
           <IonButton>
             <IonIcon className="Artiste__back" icon={chevronBackCircleOutline} />
-          </IonButton>
-          <IonButton>
-            <IonIcon className="Artiste__setting" icon={settingsOutline} />
           </IonButton>
         </IonButtons>
         <div className="Artiste__background">
