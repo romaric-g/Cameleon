@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonSlide } from '@ionic/react';
 import Models from '../../../types/models';
-import './index.css';
+import './index.scss';
 
 interface SlideProps {
     theme: Models.Theme,

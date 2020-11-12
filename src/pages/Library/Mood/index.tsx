@@ -1,39 +1,29 @@
 import React from 'react';
 import PlaylistPreview from '../../../components/PlaylistPreview';
-import Models from '../../../types/models';
+import useSpotify from '../../../hooks/useSpotify';
 import './index.css';
 
 const Mood: React.FC = () => {
 
-    const playlists: Models.PlaylistPreview[] = React.useMemo(() => {
-        return [
-            {
-                title: "jour de pluie",
-                image: "/assets/image/Sensuel_Plan de travail 1.jpg",
-                titleAmount: 12,
-            },
-            {
-                title: "lundi matin",
-                image: "/assets/image/Sensuel_Plan de travail 1.jpg",
-                titleAmount: 6,
-            },
-            {
-                title: "sport",
-                image: "/assets/image/Sensuel_Plan de travail 1.jpg",
-                titleAmount: 1,
-            },
-            {
-                title: "go crazy",
-                image: "/assets/image/Sensuel_Plan de travail 1.jpg",
-                titleAmount: 25,
-            }
-        ]
-        }, []);
-    
+    const { fetchSpotify } = useSpotify();
+    const [ playlists, setPlaylists ] = React.useState([]);
+
+    fetchSpotify('https://api.spotify.com/v1/me/playlists', 
+        (data) => {
+            setPlaylists(data.items)
+        }
+    )
+
+    console.log(playlists)
+
     return (
         <div className="Mood">
-            { playlists.map((playlist) => (
-                <PlaylistPreview playlistPreview={playlist} key={playlist.title} />
+            { playlists.map((playlist: any) => (
+                <PlaylistPreview playlistPreview={{
+                    title: playlist.name,
+                    image: playlist.images[0].url,
+                    titleAmount: playlist.tracks.total
+                }} key={playlist.id} />
             ))}
         </div>
     );
