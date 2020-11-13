@@ -1,9 +1,7 @@
 import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useContext } from 'react';
-import Context from '../../components/SpotifyProvider/Context';
 import ThemeCard from '../../components/ThemeCard';
 import AppContext from '../../contexts/AppContext';
-import Models from '../../types/models';
 import './index.scss';
 
 const ThemeList: React.FC = () => {

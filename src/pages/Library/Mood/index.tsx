@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router';
 import PlaylistPreview from '../../../components/PlaylistPreview';
 import useSpotify from '../../../hooks/useSpotify';
 import './index.css';

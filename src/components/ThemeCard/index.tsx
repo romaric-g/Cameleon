@@ -24,7 +24,7 @@ const ThemeCard: React.FC<ThemeCardProps> = ({ theme }) => {
           .then(function() {
             setShowPlayer(true)
           })
-    }, [deviceId])
+    }, [theme, deviceId, spotifyApi, setShowPlayer])
 
     return (
         <div className="ThemeCard" onClick={playSound}>

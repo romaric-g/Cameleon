@@ -10,7 +10,7 @@ const MusicPlayer: React.FC = () => {
   const [playerState, setPlayerState] = React.useState<any>(null);
   const [percent, setPercent] = React.useState<any>(0);
 
-  const { player, spotifyApi, deviceId } = React.useContext(Context) as any;
+  const { player, spotifyApi } = React.useContext(Context) as any;
   const { showPlayer, setShowPlayer } = React.useContext(AppContext) as any;
 
   React.useEffect(() => {
@@ -34,7 +34,6 @@ const MusicPlayer: React.FC = () => {
   })
 
   const paused = React.useMemo(() => playerState && playerState.paused , [playerState])
-  const track = React.useMemo(() => playerState?.track_window?.current_track, [playerState]);
   const trackName = React.useMemo(() => playerState?.track_window?.current_track?.name || '', [playerState]);
   const artist = React.useMemo(() => playerState?.track_window?.current_track?.artists[0].name || '', [playerState]);
 
@@ -48,7 +47,7 @@ const MusicPlayer: React.FC = () => {
     } else {
       spotifyApi.pause()
     }
-  }, [paused])
+  }, [paused, spotifyApi])
 
 
   if(!playerState) {

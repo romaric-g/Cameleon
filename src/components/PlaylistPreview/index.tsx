@@ -23,7 +23,7 @@ const PlaylistPreview: React.FC<PlaylistPreviewProps> = ({playlistPreview, id })
 
   const openPlaylist = React.useCallback(() => {
     history.push('/library/' + id)
-  }, [])
+  }, [history, id])
 
   return (
     <IonItem lines="none" className="PlaylistPreview" onClick={openPlaylist}>

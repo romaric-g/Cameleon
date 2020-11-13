@@ -5,15 +5,12 @@ import {
   IonText,
   IonButtons,
   IonButton,
-  IonIcon,
   IonBackButton,
 } from "@ionic/react";
 import React from "react";
 import TrackPreview from "../../components/TrackPreview";
 import Models from "../../types/models";
 import "./index.scss";
-import { caretBackOutline} from "ionicons/icons";
-import { chevronBackCircleOutline} from "ionicons/icons";
 import Context from "../../components/SpotifyProvider/Context";
 import { useHistory, useParams } from "react-router";
 
@@ -44,12 +41,12 @@ const Playlist: React.FC = () => {
               }
             }),
           })
-        }, (err: any) => {
+        }, () => {
           history.push('/')
         });
 
   
-  }, [spotifyApi, id])
+  }, [spotifyApi, id, history])
   
   if(!playlist) return null;
 

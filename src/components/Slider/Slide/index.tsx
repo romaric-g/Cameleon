@@ -24,7 +24,7 @@ const Slide: React.FC<SlideProps> = ({ theme }) => {
           .then(function() {
             setShowPlayer(true)
           })
-    }, [deviceId])
+    }, [deviceId, spotifyApi, setShowPlayer, theme])
 
     return (
         <IonSlide>

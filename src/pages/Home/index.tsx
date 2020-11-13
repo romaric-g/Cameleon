@@ -21,8 +21,8 @@ const Home: React.FC = () => {
   return (
     <IonPage className="Home">
       <IonHeader className="ion-no-border">
-      <IonTitle className="cameleon-title">Cameleon</IonTitle>
         <IonToolbar>
+          <IonTitle className="cameleon-title">Cameleon</IonTitle>
           <IonButtons slot="end">
             <IonButton>
               <IonIcon icon={settings} />
@@ -32,7 +32,9 @@ const Home: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen>
         <Slider themes={themes} key={themes.length} setBackimage={setBackimage} />
-        <IonButton onClick={openMoodList} className="all-themes">Tous les moods</IonButton>
+        <div className="Home__floatingButton">
+          <IonButton onClick={openMoodList} className="Home__floatingButton__button">Tous les moods</IonButton>
+        </div>
         <div className="backimage">
           <img src={backimage} key={backimage} alt="" />
         </div>
