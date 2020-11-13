@@ -8,18 +8,25 @@ import {
 } from "@ionic/react";
 import { ellipsisVertical } from "ionicons/icons";
 import React from "react";
+import { useHistory } from "react-router";
 import Models from "../../types/models";
 import './index.css';
 
 interface PlaylistPreviewProps {
-  playlistPreview: Models.Playlist;
+  playlistPreview: Models.Playlist,
+  id?: string
 }
 
-const PlaylistPreview: React.FC<PlaylistPreviewProps> = ({playlistPreview}) => {
- 
+const PlaylistPreview: React.FC<PlaylistPreviewProps> = ({playlistPreview, id }) => {
+
+  const history = useHistory();
+
+  const openPlaylist = React.useCallback(() => {
+    history.push('/library/' + id)
+  }, [])
 
   return (
-    <IonItem lines="none" className="PlaylistPreview">
+    <IonItem lines="none" className="PlaylistPreview" onClick={openPlaylist}>
       <div className="PlaylistPreview__start" slot="start">
         <IonThumbnail>
           <img

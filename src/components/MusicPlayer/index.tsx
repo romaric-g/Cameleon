@@ -2,15 +2,16 @@ import { IonButton, IonButtons, IonContent, IonFooter, IonIcon, IonItem, IonLabe
 import { add, arrowDown, folderSharp, heartOutline, pause, pauseCircle, playCircle, playSkipBack, playSkipForward, repeat, stopwatch } from 'ionicons/icons';
 import React from 'react';
 import Context from '../SpotifyProvider/Context';
+import AppContext from '../../contexts/AppContext';
 import './index.scss';
 
 const MusicPlayer: React.FC = () => {
 
-  const [showPlayer, setShowPlayer] = React.useState(false);
   const [playerState, setPlayerState] = React.useState<any>(null);
   const [percent, setPercent] = React.useState<any>(0);
 
-  const { player } = React.useContext(Context) as any;
+  const { player, spotifyApi, deviceId } = React.useContext(Context) as any;
+  const { showPlayer, setShowPlayer } = React.useContext(AppContext) as any;
 
   React.useEffect(() => {
     if(player != null) {
@@ -18,8 +19,8 @@ const MusicPlayer: React.FC = () => {
         setPlayerState(state)
       });
     }
-  }, [player])
-
+  }, [player, spotifyApi])
+  
   React.useEffect(() => {
     const timer = setTimeout(() => {
       if (!playerState) {
@@ -33,12 +34,22 @@ const MusicPlayer: React.FC = () => {
   })
 
   const paused = React.useMemo(() => playerState && playerState.paused , [playerState])
-  const track = React.useMemo(() => playerState?.track_window?.current_track?.name || '', [playerState]);
+  const track = React.useMemo(() => playerState?.track_window?.current_track, [playerState]);
+  const trackName = React.useMemo(() => playerState?.track_window?.current_track?.name || '', [playerState]);
   const artist = React.useMemo(() => playerState?.track_window?.current_track?.artists[0].name || '', [playerState]);
 
   const trackSmImg = React.useMemo(() => playerState?.track_window?.current_track?.album?.images[0].url, [playerState])
-  const trackMdImg = React.useMemo(() => playerState?.track_window?.current_track?.album?.images[1].url, [playerState])
   const trackLgImg = React.useMemo(() => playerState?.track_window?.current_track?.album?.images[2].url, [playerState])
+
+  const togglePlay = React.useCallback((e) => {
+    e.stopPropagation();
+    if (paused) {
+      spotifyApi.play()
+    } else {
+      spotifyApi.pause()
+    }
+  }, [paused])
+
 
   if(!playerState) {
     return <div></div>;
@@ -52,11 +63,15 @@ const MusicPlayer: React.FC = () => {
             <img src={trackSmImg} alt="" />
           </IonThumbnail>
           <div>
-            <IonLabel className="MusicPlayer__track">{track}</IonLabel>
+            <IonLabel className="MusicPlayer__track">{trackName}</IonLabel>
             <IonLabel className="MusicPlayer__artist">{artist}</IonLabel>
           </div>
           <IonButtons slot="end">
-            <IonButton><IonIcon icon={paused ?  playCircle : pause} /></IonButton>
+            <IonButton onClick={(e) => {
+              e.stopPropagation();
+              spotifyApi.skipToNext()
+            }}><IonIcon icon={playSkipForward} /></IonButton>
+            <IonButton onClick={togglePlay} ><IonIcon icon={paused ?  playCircle : pause} /></IonButton>
           </IonButtons>
         </IonItem>
         <IonProgressBar value={percent}></IonProgressBar>
@@ -80,13 +95,13 @@ const MusicPlayer: React.FC = () => {
         </IonToolbar>
         <IonContent>
           <div className="trackInfos" slot="fixed">
-            <img src={trackMdImg} alt="" />
+            <img src={trackLgImg} alt="" />
             <IonButtons>
               <IonButton color="light"><IonIcon icon={add} /></IonButton>
               <IonButton color="light"><IonIcon icon={heartOutline} /></IonButton>
             </IonButtons>
             <div>
-              <IonTitle color="light">{track}</IonTitle> 
+              <IonTitle color="light">{trackName}</IonTitle> 
               <IonText color="light">{artist}</IonText> 
             </div>
           </div>
@@ -95,9 +110,9 @@ const MusicPlayer: React.FC = () => {
           <IonProgressBar value={percent}></IonProgressBar>
           <IonButtons>
             <IonButton color="light"><IonIcon icon={stopwatch} /></IonButton>
-            <IonButton color="light"><IonIcon icon={playSkipBack} /></IonButton>
-            <IonButton color="light"><IonIcon icon={paused ? playCircle : pauseCircle} /></IonButton>
-            <IonButton color="light"><IonIcon icon={playSkipForward} /></IonButton>
+            <IonButton color="light" onClick={() => spotifyApi.skipToPrevious()}><IonIcon icon={playSkipBack} /></IonButton>
+            <IonButton color="light" onClick={togglePlay}><IonIcon icon={paused ? playCircle : pauseCircle} /></IonButton>
+            <IonButton color="light" onClick={() => spotifyApi.skipToNext()}><IonIcon icon={playSkipForward} /></IonButton>
             <IonButton color="light"><IonIcon icon={repeat} /></IonButton>
           </IonButtons>
         </IonFooter>

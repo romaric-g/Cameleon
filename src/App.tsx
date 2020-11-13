@@ -39,6 +39,7 @@ const App: React.FC = () => {
   
   const { fetchSpotify } = useSpotify()
   const [themes, setThemes] = React.useState<Models.Theme[]>([]);
+  const [showPlayer, setShowPlayer] = React.useState(false);
 
   fetchSpotify('https://cameleon.romaricgauzi.com/themes', (data) => {
     setThemes(
@@ -46,7 +47,8 @@ const App: React.FC = () => {
         return {
           title: theme.title,
           //https://cameleon.romaricgauzi.com/${theme.image}
-          image: `https://cameleon.romaricgauzi.com${theme.image}`
+          image: `https://cameleon.romaricgauzi.com${theme.image}`,
+          uri: theme.uri
         }
       })
     )
@@ -54,7 +56,11 @@ const App: React.FC = () => {
 
   return (
     <IonApp>
-      <AppContext.Provider value={{themes}}>
+      <AppContext.Provider value={{
+          themes,
+          showPlayer: showPlayer,
+          setShowPlayer: setShowPlayer
+        }}>
         <SpotifyProvider
           clientId={spotifyClientId}
           redirectUri={spotifyRedirectUri}

@@ -18,12 +18,12 @@ const MainLayout: React.FC = () => {
             <IonContent>
             <IonRouterOutlet>
                 <Route path="/home" component={Home} exact={true} />
-                <Route path="/library" component={Library} />
+                <Route path="/library" component={Library} exact />
                 <Route path="/search" component={Search} />
                 <Route path="/themes" component={ThemeList} />
                 <Route path="/player" component={MusicPlayer} />
-                <Route path='/artist/personal/:id' component={Artiste} />
-                <Route path='/library/personal/:id' component={Playlist} />
+                <Route path='/artist/:id' component={Artiste} />
+                <Route path='/library/:id' component={Playlist} />
                 <Route path="/" render={() => <Redirect to="/home" />} exact={true} />
             </IonRouterOutlet>
             </IonContent>
