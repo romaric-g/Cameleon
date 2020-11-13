@@ -1,8 +1,16 @@
 import { createContext } from "react";
 import Models from "../types/models";
 
-const ThemeContext = createContext({
-    themes: [] as Models.Theme[]
-});
+interface AppContextProps {
+    themes: Models.Theme[],
+    showPlayer: boolean,
+    setShowPlayer: React.Dispatch<React.SetStateAction<boolean>>
+}
 
-export default ThemeContext;
+const AppContext = createContext({
+    themes: [],
+    showPlayer: false,
+    setShowPlayer: () => {}
+} as AppContextProps);
+
+export default AppContext;
