@@ -45,14 +45,14 @@ const Library: React.FC = () => {
     <IonPage className="Library">
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Bibliothèque</IonTitle>
+          <IonTitle>BIBLIOTHEQUE</IonTitle>
         </IonToolbar>
         <IonSegment value="moods" onIonChange={onSegmentChange}>
           <IonSegmentButton value="moods" ref={moodsButtonRef}>
-            <IonLabel>Mes moods</IonLabel>
+            <IonLabel className="Library__moods">Mes moods</IonLabel>
           </IonSegmentButton>
           <IonSegmentButton value="liked" ref={likedButtonRef}>
-            <IonLabel>Titres likés</IonLabel>
+            <IonLabel className="Library__likes">Titres likés</IonLabel>
           </IonSegmentButton>
         </IonSegment>
       </IonHeader>

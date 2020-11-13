@@ -12,6 +12,7 @@ import React from "react";
 import TrackPreview from "../../components/TrackPreview";
 import Models from "../../types/models";
 import "./index.scss";
+import { caretBackOutline} from "ionicons/icons";
 import { chevronBackCircleOutline} from "ionicons/icons";
 import Context from "../../components/SpotifyProvider/Context";
 import { useHistory, useParams } from "react-router";
@@ -62,9 +63,8 @@ const Playlist: React.FC = () => {
         />
       </div>
       <IonHeader>
-        <IonButtons>
+        <IonButtons className="Playlist__back">
           <IonButton>
-            {/* <IonIcon className="Playlist__back" icon={chevronBackCircleOutline} /> */}
             <IonBackButton />
           </IonButton>
         </IonButtons>   

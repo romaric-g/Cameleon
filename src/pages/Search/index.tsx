@@ -60,21 +60,20 @@ const Search: React.FC = () => {
 
   return (
     <IonPage className="Search">
-      <IonHeader className="header">
+      <IonHeader className="Search__Header">
         <IonToolbar>
-          <IonTitle>Recherche</IonTitle>
+          <IonTitle>RECHERCHE</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)}></IonSearchbar>
+        <IonSearchbar className="Search__bar" placeholder="Que recherchez-vous ?" value={searchText} onIonChange={e => setSearchText(e.detail.value!)}> </IonSearchbar>
         <div className="Search__trackresults">
-          <IonText>Titres</IonText>
+          <IonText className="Search__trackresults__title">Recherches récentes</IonText>
           { tracks.map((track) => (
             <Track trackPreview={track} key={track.title} />
           ))}
         </div>
         <div className="Search__artistresults">
-          <IonText>Artistes</IonText>
           { artists.map((artist) => (
             <Artist artist={artist} key={artist.name} />
           ))}

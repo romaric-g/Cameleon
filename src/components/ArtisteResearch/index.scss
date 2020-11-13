@@ -1,0 +1,24 @@
+.ArtistPreview {
+    margin: 20px 0;
+    margin-bottom: -10px;
+    --background: none;
+    opacity:1;
+}
+
+.ArtistPreview__start {
+    display: flex;
+}
+
+.ArtistPreview__texts {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Gotham'!important;
+    font-weight: normal;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.ArtistPreview__texts ion-text:first-child {
+    font-size: 14px;
+    font-weight: normal;
+}
