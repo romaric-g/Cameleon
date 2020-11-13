@@ -11,7 +11,7 @@ import React from "react";
 import TrackPreview from "../../components/TrackPreview";
 import Models from "../../types/models";
 import "./index.scss";
-import { chevronBackCircleOutline} from "ionicons/icons";
+import { caretBackOutline} from "ionicons/icons";
 
 const Playlist: React.FC = () => {
   const playlist: Models.Playlist = React.useMemo(() => {
@@ -82,9 +82,9 @@ const Playlist: React.FC = () => {
           />
           </div>
       <IonHeader>
-        <IonButtons>
+        <IonButtons className="Playlist__back">
           <IonButton>
-            <IonIcon className="Playlist__back" icon={chevronBackCircleOutline} />
+            <IonIcon  icon={caretBackOutline} />
           </IonButton>
         </IonButtons>   
         <IonText>{playlist.title}</IonText>

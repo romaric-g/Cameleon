@@ -21,8 +21,8 @@ const Home: React.FC = () => {
   return (
     <IonPage className="Home">
       <IonHeader className="ion-no-border">
+      <IonTitle className="cameleon-title">Cameleon</IonTitle>
         <IonToolbar>
-          <IonTitle className="cameleon-title">Cameleon</IonTitle>
           <IonButtons slot="end">
             <IonButton>
               <IonIcon icon={settings} />

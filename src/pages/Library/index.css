@@ -1,12 +1,27 @@
 .Library ion-toolbar {
-    --background: transparent;
+  --background: transparent;
+  font-size: 20px;
+  font-family: "Gotham" !important;
+  font-weight: normal;
 }
 
 .Library .swiper-slide > * {
-    width: 100%!important;
+  width: 100% !important;
 }
 
 .Library .cameleon-title {
-    font-family: 'Designer', sans-serif!important;
-    font-size: 2rem;
+  font-family: "Designer", sans-serif !important;
+  font-size: 2rem;
 }
+
+.Library__moods {
+  font-size: 12px;
+  font-family: "Gotham" !important;
+  font-weight: normal;
+}
+
+.Library__likes {
+    font-size: 12px;
+    font-family: "Gotham" !important;
+    font-weight: normal;
+  }

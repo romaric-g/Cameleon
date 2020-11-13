@@ -1,9 +1,41 @@
 .Search ion-toolbar {
     --background: transparent;
-    --border-style: none;
+    font-size: 20px;
+    font-family: "Gotham" !important;
+    font-weight: normal;
 }
 
-.Search ion-searchbar {
-    --background: #254650;
-    --color: white;
+
+.Search {
+
+  &__bar {
+    font-size: 20px!important;
+    font-family: "Gotham" !important;
+    font-weight: lighter!important;
+   --border-radius: 10 !important;
+   margin-bottom: 10px;
+
+  }
+
+  &__trackresults {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+    &__title {
+      font-size: 16px;
+      font-family: "Gotham" !important;
+      font-weight: normal;
+    }
+  }
+
+  &__artistresults {
+    text-align: center;
+
+    &__title {
+      font-size: 16px;
+      font-family: "Gotham" !important;
+      font-weight: normal;
+    }
+  }
 }
