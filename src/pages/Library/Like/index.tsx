@@ -1,9 +1,3 @@
-import {
-  IonButton,
-  IonContent,
-  IonHeader,
-  IonPage,
-} from "@ionic/react";
 import React from "react";
 import TrackPreview from "../../../components/TrackPreview";
 import useSpotify from "../../../hooks/useSpotify";

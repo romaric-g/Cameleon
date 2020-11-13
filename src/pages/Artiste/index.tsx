@@ -5,7 +5,6 @@ import {
   IonText,
   IonButtons,
   IonButton,
-  IonIcon,
   IonBackButton,
 } from "@ionic/react";
 import React from "react";
@@ -13,7 +12,6 @@ import SmallMoodCard from "../../components/SmallMoodCard";
 import TrackPreview from "../../components/TrackPreview";
 import Models from "../../types/models";
 import "./index.scss";
-import { caretBackOutline} from "ionicons/icons";
 import useSpotify from "../../hooks/useSpotify";
 import { useParams } from "react-router";
 

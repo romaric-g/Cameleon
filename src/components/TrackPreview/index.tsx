@@ -9,7 +9,7 @@ import {
 import React from "react";
 import Models from "../../types/models";
 import "./index.scss";
-import { ellipsisVertical, heart } from "ionicons/icons";
+import { heart } from "ionicons/icons";
 
 interface TrackPreviewProps {
   trackPreview: Models.Track;

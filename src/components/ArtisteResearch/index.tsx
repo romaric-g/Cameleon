@@ -1,4 +1,4 @@
-import { IonItem, IonText, IonThumbnail } from "@ionic/react";
+import { IonText } from "@ionic/react";
 import React from "react";
 import { useHistory } from "react-router";
 import Models from "../../types/models";

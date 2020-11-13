@@ -1,15 +1,14 @@
-import { IonContent, IonHeader, IonPage, IonSearchbar, IonText, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonSearchbar, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useContext, useEffect } from 'react';
 import Track from '../../components/TrackPreview';
 import Artist from '../../components/ArtisteResearch';
-import Models from '../../types/models';
 import './index.scss';
 import { SpotifyContext } from '../../components/SpotifyProvider';
 
 const Search: React.FC = () => {
 
   const [searchText, setSearchText] = React.useState('');
-  const { spotifyApi, deviceId } = useContext(SpotifyContext) as any
+  const { spotifyApi } = useContext(SpotifyContext) as any
   
   const [tracks, setTracks] = React.useState<any[]>([]);
   const [artists, setArtist] = React.useState<any[]>([]);
