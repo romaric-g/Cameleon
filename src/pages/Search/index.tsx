@@ -1,9 +1,9 @@
-import { IonContent, IonHeader, IonPage, IonSearchbar, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonSearchbar, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import Track from '../../components/TrackPreview';
 import Artist from '../../components/ArtisteResearch';
 import Models from '../../types/models';
-import './index.css';
+import './index.scss';
 
 const Search: React.FC = () => {
 
@@ -67,17 +67,19 @@ const Search: React.FC = () => {
       </IonHeader>
       <IonContent>
         <IonSearchbar value={searchText} onIonChange={e => setSearchText(e.detail.value!)}></IonSearchbar>
+        <div className="Search__trackresults">
+          <IonText>Titres</IonText>
+          { tracks.map((track) => (
+            <Track trackPreview={track} key={track.title} />
+          ))}
+        </div>
+        <div className="Search__artistresults">
+          <IonText>Artistes</IonText>
+          { artists.map((artist) => (
+            <Artist artist={artist} key={artist.name} />
+          ))}
+        </div>
       </IonContent>
-      <div className="Search__trackresults">
-        { tracks.map((track) => (
-          <Track trackPreview={track} key={track.title} />
-        ))}
-      </div>
-      <div className="Search__artistresults">
-        { artists.map((artist) => (
-          <Artist artist={artist} key={artist.name} />
-        ))}
-      </div>
     </IonPage>
   );
 };

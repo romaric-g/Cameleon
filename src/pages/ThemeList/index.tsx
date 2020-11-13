@@ -1,14 +1,12 @@
-import { IonBackButton, IonButton, IonButtons, IonContent, IonHeader, IonImg, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import React from 'react';
-import Models from '../../types/models';
-import './index.css';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import React, { useContext } from 'react';
+import ThemeCard from '../../components/ThemeCard';
+import AppContext from '../../contexts/AppContext';
+import './index.scss';
 
-interface ThemeListProps {
-  themes: Models.Theme[],
-  router: HTMLIonRouterOutletElement | null;
-}
+const ThemeList: React.FC = () => {
 
-const ThemeList: React.FC<ThemeListProps> = ({ themes, router }) => {
+  const { themes } = useContext(AppContext);
 
   return (
     <IonPage className="ThemeList">
@@ -17,60 +15,14 @@ const ThemeList: React.FC<ThemeListProps> = ({ themes, router }) => {
           <IonButtons slot="start">
             <IonBackButton />
           </IonButtons>
-          <IonTitle className="cameleon-title">Cameleon</IonTitle>
           <IonTitle>TOUS LES MOODS</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <div className="themes">
-          <div className="theme">
-            <IonButton expand="block">
-              <div className="themesensuel">
-                <p>Sensuel</p>
-              </div>
-                <IonImg src="/assets/image/red.jpg" />
-            </IonButton>
-            </div>
-          <div className="theme">
-            <IonButton expand="block">
-            <div className="themerebelle">
-                <p>Rebelle</p>
-              </div>
-              <IonImg src="/assets/image/CourtneyFireCloseup.jpg" />
-            </IonButton>
-          </div>
-          <div className="theme">
-            <IonButton expand="block">
-            <div className="themereve">
-                <p>Rêveur</p>
-              </div>
-              <IonImg src="/assets/image/cloudblue.jpg" />
-            </IonButton>
-          </div>
-          <div className="theme">
-            <IonButton expand="block">
-            <div className="themejoie">
-                <p>Joyeux</p>
-              </div>
-              <IonImg src="/assets/image/yellowballon.jpg" />
-            </IonButton>
-          </div>
-          <div className="theme">
-            <IonButton expand="block">
-            <div className="thememelan">
-                <p>Mélancolie</p>
-              </div>
-              <IonImg src="/assets/image/darkblue.jpg" />
-            </IonButton>
-          </div>
-          <div className="theme">
-            <IonButton expand="block">
-            <div className="themefrenesie">
-                <p>Frénétique</p>
-              </div>
-              <IonImg src="/assets/image/\Frénétique.jpg" />
-            </IonButton>
-          </div>
+          {themes.map((theme) => 
+            <ThemeCard theme={theme} key={theme.image} />
+          )}
         </div>
       </IonContent>
     </IonPage>

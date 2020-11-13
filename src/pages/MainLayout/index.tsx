@@ -7,16 +7,14 @@ import Home from '../Home';
 import Library from '../Library';
 import Search from '../Search';
 import ThemeList from '../ThemeList';
-import MusicPlayer from '../MusicPlayer';
+import MusicPlayer from '../../components/MusicPlayer';
 import Artiste from '../Artiste';
 import Playlist from '../Playlist';
+import './index.scss'
 
 const MainLayout: React.FC = () => {
-
-    console.log("Main")
-
     return (
-        <IonPage>
+        <IonPage className="MainLayout">
             <IonContent>
             <IonRouterOutlet>
                 <Route path="/home" component={Home} exact={true} />
@@ -30,18 +28,20 @@ const MainLayout: React.FC = () => {
             </IonRouterOutlet>
             </IonContent>
             <IonFooter>
-            <MusicPlayer />
-            <IonTabBar>
-                <IonTabButton tab="home" href="/home">
-                <IonIcon icon={compass} />
-                </IonTabButton>
-                <IonTabButton tab="library" href="/library">
-                <IonIcon icon={folderOpen} />
-                </IonTabButton>
-                <IonTabButton tab="search" href="/search">
-                <IonIcon icon={search} />
-                </IonTabButton>
-            </IonTabBar>
+                <div className="MainLayout__floatingPlayer">
+                    <MusicPlayer />
+                </div>
+                <IonTabBar>
+                    <IonTabButton tab="home" href="/home">
+                    <IonIcon icon={compass} />
+                    </IonTabButton>
+                    <IonTabButton tab="library" href="/library">
+                    <IonIcon icon={folderOpen} />
+                    </IonTabButton>
+                    <IonTabButton tab="search" href="/search">
+                    <IonIcon icon={search} />
+                    </IonTabButton>
+                </IonTabBar>
             </IonFooter>
         </IonPage>
     )
