@@ -1,4 +1,6 @@
 .Artiste {
+  overflow: hidden;
+  
   ion-content {
     backdrop-filter: blur(6px);
     display: flex;
@@ -63,13 +65,5 @@
     font-weight: normal;
     margin-top: 10px;
   }
-
-  &__back {
-    padding-left: 10px;
-    padding-top: 0px;
-    z-index: 20;
-    position: absolute;
-    zoom: 1.5;
-   }
 
 }

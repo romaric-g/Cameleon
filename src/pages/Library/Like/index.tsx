@@ -6,52 +6,37 @@ import {
 } from "@ionic/react";
 import React from "react";
 import TrackPreview from "../../../components/TrackPreview";
+import useSpotify from "../../../hooks/useSpotify";
 import Models from "../../../types/models";
 import "./index.css";
 
 const Track: React.FC = () => {
-  const tracks: Models.Track[] = React.useMemo(() => {
-    return [
-      {
-        title: "5G",
-        image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
-        artist_name: "Booba",
-        artist_id: 1,
-      },
-      {
-        title: "4G",
-        image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
-        artist_name: "Booba",
-        artist_id: 1,
-      },
-      {
-        title: "4G",
-        image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
-        artist_name: "Booba",
-        artist_id: 1,
-      },
-      {
-        title: "4G",
-        image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
-        artist_name: "Booba",
-        artist_id: 1,
-      },
-    ];
-  }, []);
+
+
+
+    const { fetchSpotify} = useSpotify();
+    const [ tracks, setTracks ] = React.useState<Models.Track[]>([]);
+
+    fetchSpotify("https://api.spotify.com/v1/me/tracks?limit=50", (data) => {
+        console.log(data)
+        setTracks(
+            data.items.map((track: any) => ({
+                title: track.track.name,
+                image: track.track.album.images[2].url,
+                artist_name: track.track.artists[0].name,
+                artist_id: track.track.artists[0].id
+            }))
+        )
+    })
 
   return (
-    <IonPage className="Track">
-      <IonHeader>
-        <IonButton className="Playlist__lecture">Lecture</IonButton>
-      </IonHeader>
-      <IonContent fullscreen>
+    <div className="Track">
         <div className="Playlist__tracksList ion-text-center">
-          {tracks.map((track) => (
+            {tracks.map((track) => (
             <TrackPreview trackPreview={track} />
-          ))}
+            ))}
         </div>
-      </IonContent>
-    </IonPage>
+    </div>
   );
 };
 export default Track;

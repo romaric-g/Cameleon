@@ -9,13 +9,14 @@ import {
 import React from "react";
 import Models from "../../types/models";
 import "./index.scss";
-import { ellipsisVertical } from "ionicons/icons";
+import { ellipsisVertical, heart } from "ionicons/icons";
 
 interface TrackPreviewProps {
   trackPreview: Models.Track;
+  hideLike?: boolean
 }
 
-const TrackPreview: React.FC<TrackPreviewProps> = ({trackPreview}) => {
+const TrackPreview: React.FC<TrackPreviewProps> = ({trackPreview, hideLike}) => {
  
 
   return (
@@ -38,7 +39,7 @@ const TrackPreview: React.FC<TrackPreviewProps> = ({trackPreview}) => {
       </div>
       <IonButtons slot="end">
         <IonButton>
-            <IonIcon icon={ellipsisVertical} />
+            { !hideLike && <IonIcon icon={heart} /> }
         </IonButton>
       </IonButtons>
     </IonItem>

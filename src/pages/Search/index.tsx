@@ -1,62 +1,33 @@
 import { IonContent, IonHeader, IonPage, IonSearchbar, IonText, IonTitle, IonToolbar } from '@ionic/react';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Track from '../../components/TrackPreview';
 import Artist from '../../components/ArtisteResearch';
 import Models from '../../types/models';
 import './index.scss';
+import { SpotifyContext } from '../../components/SpotifyProvider';
 
 const Search: React.FC = () => {
 
   const [searchText, setSearchText] = React.useState('');
+  const { spotifyApi, deviceId } = useContext(SpotifyContext) as any
+  
+  const [tracks, setTracks] = React.useState<any[]>([]);
+  const [artists, setArtist] = React.useState<any[]>([]);
 
-  const tracks: Models.Track[] = React.useMemo(() => {
-    return [
-      {
-        title: "Go Solo",
-        image: "/assets/image/Sensuel_Plan de travail 1.jpg",
-        artist_name: "Tom Rosenthal",
-        artist_id: 2,
-      },
-      {
-        title: "Hello",
-        image: "/assets/image/Sensuel_Plan de travail 1.jpg",
-        artist_name: "Adèle",
-        artist_id: 4,
-      },
-      {
-        title: "It's Ok",
-        image: "/assets/image/Sensuel_Plan de travail 1.jpg",
-        artist_name: "Tom Rosenthal",
-        artist_id: 2,
-      },
-      {
-        title: "Monarque",
-        image: "/assets/image/Sensuel_Plan de travail 1.jpg",
-        artist_name: "Moody",
-        artist_id: 3,
-      }
-    ]
-  }, []);
-
-  const artists: Models.Artist[] = React.useMemo(() => {
-    return [
-      {
-        id: 2,
-        name: "Tom Rosenthal",
-        image: "/assets/image/Sensuel_Plan de travail 1.jpg",
-      },
-      {
-        id: 3,
-        name: "Moody",
-        image: "/assets/image/Sensuel_Plan de travail 1.jpg",
-      },
-      {
-        id: 4,
-        name: "Adèle",
-        image: "/assets/image/Sensuel_Plan de travail 1.jpg",
-      },
-    ]
-  }, []);
+  useEffect(() => {
+    const searchTracks = async () => {
+      const results = await spotifyApi.searchTracks(searchText, { limit: 5 })
+      console.log(results)
+      setTracks(results.tracks.items)
+    }
+    const searchArtists = async () => {
+      const results = await spotifyApi.searchArtists(searchText, { limit: 5 })
+      console.log(results)
+      setArtist(results.artists.items)
+    }
+    searchTracks();
+    searchArtists()
+  }, [spotifyApi, searchText])
 
   return (
     <IonPage className="Search">
@@ -66,16 +37,24 @@ const Search: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonSearchbar className="Search__bar" placeholder="Que recherchez-vous ?" value={searchText} onIonChange={e => setSearchText(e.detail.value!)}> </IonSearchbar>
+        <IonSearchbar className="Search__bar" placeholder="Que recherchez-vous ?" onIonChange={e => setSearchText(e.detail.value!)}> </IonSearchbar>
         <div className="Search__trackresults">
-          <IonText className="Search__trackresults__title">Recherches récentes</IonText>
           { tracks.map((track) => (
-            <Track trackPreview={track} key={track.title} />
+            <Track hideLike trackPreview={{
+              title: track.name,
+              image: track.album.images && track.album.images[2].url,
+              artist_name: track.artists[0].name,
+              artist_id: track.artists[0].id,
+            }} key={track.artists[0].id} />
           ))}
         </div>
         <div className="Search__artistresults">
           { artists.map((artist) => (
-            <Artist artist={artist} key={artist.name} />
+            <Artist artist={{
+              id: artist.id,
+              name: artist.name,
+              image: artist.images[0] ? artist.images[0].url : null,
+            }} key={artist.id} />
           ))}
         </div>
       </IonContent>

@@ -1,24 +1,43 @@
 .ArtistPreview {
-    margin: 20px 0;
-    margin-bottom: -10px;
-    --background: none;
-    opacity:1;
-}
+    position: relative;
+    margin-right: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    min-width: 120px;
+    height: 40px;
 
-.ArtistPreview__start {
-    display: flex;
-}
+    &__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
 
-.ArtistPreview__texts {
-    display: flex;
-    flex-direction: column;
-    font-family: 'Gotham'!important;
-    font-weight: normal;
-    font-size: 14px;
-    font-weight: lighter;
-}
+        img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
 
-.ArtistPreview__texts ion-text:first-child {
-    font-size: 14px;
-    font-weight: normal;
+    &__texts {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-family: 'Gotham'!important;
+        font-weight: normal;
+        font-size: 14px;
+        font-weight: lighter;
+
+        ion-text:first-child {
+            font-size: 14px;
+            font-weight: normal;
+        }
+    }
 }
