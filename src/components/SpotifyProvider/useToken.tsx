@@ -28,8 +28,19 @@ const useToken = ({ clientId, redirectUri }: {clientId: String, redirectUri: Str
       // url de spotify
       const authEndpoint = 'https://accounts.spotify.com/authorize'
       const scopes = [
-        'streaming'
+        'streaming',
+        'app-remote-control',
+        'user-read-playback-state',
+        'user-read-recently-played',
+        'user-read-currently-playing',
+        'user-read-playback-position',
+        'user-modify-playback-state',
+        'playlist-read-private',
+        'user-library-read',
+        'user-read-email',
+        'user-read-private'
       ]
+
 
       // redirige vers spotify si aucun token n'est enregistré
       window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token` as any

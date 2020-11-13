@@ -6,85 +6,66 @@ import {
   IonButtons,
   IonButton,
   IonIcon,
+  IonBackButton,
 } from "@ionic/react";
 import React from "react";
 import TrackPreview from "../../components/TrackPreview";
 import Models from "../../types/models";
 import "./index.scss";
 import { chevronBackCircleOutline} from "ionicons/icons";
+import Context from "../../components/SpotifyProvider/Context";
+import { useHistory, useParams } from "react-router";
 
 const Playlist: React.FC = () => {
-  const playlist: Models.Playlist = React.useMemo(() => {
-    return {
-      title: "Jour de pluie",
-      image: "./",
-      titleAmount: 272,
-      tracks: [
-        {
-          title: "5G",
-          image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
-          artist_name: "Booba",
-          artist_id: 1,
-        },
-        {
-          title: "4G",
-          image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
-          artist_name: "Booba",
-          artist_id: 1,
-        },
-        {
-          title: "4G",
-          image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
-          artist_name: "Booba",
-          artist_id: 1,
-        },
-        {
-          title: "4G",
-          image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
-          artist_name: "Booba",
-          artist_id: 1,
-        },
-        {
-          title: "4G",
-          image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
-          artist_name: "Booba",
-          artist_id: 1,
-        },
-        {
-          title: "4G",
-          image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
-          artist_name: "Booba",
-          artist_id: 1,
-        },
-        {
-          title: "4G",
-          image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
-          artist_name: "Booba",
-          artist_id: 1,
-        },
-        {
-          title: "4G",
-          image: "/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg",
-          artist_name: "Booba",
-          artist_id: 1,
-        },
-      ],
-    };
-  }, []);
+
+  const { id } = useParams() as any;
+  const history = useHistory();
+
+  const [playlist, setPlaylist] = React.useState<Models.Playlist | null>(null)
+  const { spotifyApi } = React.useContext(Context) as any;
+
+  React.useEffect(() => {
+    
+      spotifyApi.getPlaylist(id)
+        .then((data: any) => {
+          console.log(data)
+          setPlaylist({
+            title: data.name,
+            image: data.images[0].url,
+            titleAmount: data.tracks.total,
+            tracks: data.tracks.items.map((item: any) => {
+              const track = item.track;
+              return {
+                title: track.name,
+                image: track.album.images[2].url,
+                artist_name: track.artists.map((artist: any) => artist.name).join(', '),
+                artist_id: track.artists[0].id
+              }
+            }),
+          })
+        }, (err: any) => {
+          history.push('/')
+        });
+
+  
+  }, [spotifyApi, id])
+  
+  if(!playlist) return null;
 
   return (
     <IonPage className="Playlist">
       <div className="Playlist__background">
-          <img
-            className="Playlist__background__image"
-            src="/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg"
-            alt=""
-          />
-          </div>
+        <img
+          className="Playlist__background__image"
+          src={playlist.image}
+          alt=""
+        />
+      </div>
       <IonHeader>
         <IonButtons>
           <IonButton>
-            <IonIcon className="Playlist__back" icon={chevronBackCircleOutline} />
+            {/* <IonIcon className="Playlist__back" icon={chevronBackCircleOutline} /> */}
+            <IonBackButton />
           </IonButton>
         </IonButtons>   
         <IonText>{playlist.title}</IonText>

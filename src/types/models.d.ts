@@ -4,6 +4,7 @@ declare namespace Models {
   interface Theme {
     title: string,
     image: string,
+    uri: string,
   }
 
   interface Playlist {
@@ -11,7 +12,6 @@ declare namespace Models {
     image: string,
     titleAmount: number,
     tracks?: Track[],
-    
   }
 
   interface Artist {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import PlaylistPreview from '../../../components/PlaylistPreview';
 import useSpotify from '../../../hooks/useSpotify';
 import './index.css';
@@ -10,11 +11,10 @@ const Mood: React.FC = () => {
 
     fetchSpotify('https://api.spotify.com/v1/me/playlists', 
         (data) => {
+            console.log(data.items)
             if (data.items)setPlaylists(data.items)
         }
     )
-
-    console.log(playlists)
 
     return (
         <div className="Mood">
@@ -23,7 +23,7 @@ const Mood: React.FC = () => {
                     title: playlist.name,
                     image: playlist.images[0].url,
                     titleAmount: playlist.tracks.total
-                }} key={playlist.id} />
+                }} key={playlist.id} id={playlist.id}  />
             ))}
         </div>
     );
