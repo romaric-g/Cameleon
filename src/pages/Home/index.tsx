@@ -1,67 +1,22 @@
 import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { settings } from 'ionicons/icons';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
 import Slider from '../../components/Slider/';
-import Models from '../../types/models';
-import './index.css';
+import AppContext from '../../contexts/AppContext';
+import './index.scss';
 
 const Home: React.FC = () => {
 
   const history = useHistory();
 
+  const [backimage, setBackimage] = React.useState('');
+
   const openMoodList = React.useCallback(() => {
     history.push('/themes');
   }, [history])
-
-  const themes: Models.Theme[] = React.useMemo(() => {
-    return [
-      {
-        title: 'chagrin',
-        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
-      },
-      {
-        title: 'mélancolique',
-        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
-      },
-      {
-        title: 'frénétique',
-        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
-      },
-      {
-        title: 'rebelle',
-        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
-      },
-      {
-        title: 'sensuel',
-        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
-      },
-      {
-        title: 'confiant',
-        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
-      },
-      {
-        title: 'joyeux',
-        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
-      },
-      {
-        title: 'enthousiaste',
-        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
-      },
-      {
-        title: 'concentré',
-        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
-      },
-      {
-        title: 'héroïque',
-        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
-      },
-      {
-        title: 'rêveur',
-        image: '/assets/image/kilarov-zaneit-ZRFztIxiy3M-unsplash.jpg'
-      }
-    ]
-  }, []);
+  
+  const { themes } = useContext(AppContext);
 
   return (
     <IonPage className="Home">
@@ -76,9 +31,11 @@ const Home: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <Slider themes={themes}/>
+        <Slider themes={themes} key={themes.length} setBackimage={setBackimage} />
         <IonButton onClick={openMoodList} className="all-themes">Tous les moods</IonButton>
-        <div className="backimage" />
+        <div className="backimage">
+          <img src={backimage} key={backimage} alt="" />
+        </div>
       </IonContent>
     </IonPage>
   );

@@ -16,7 +16,9 @@ const Slide: React.FC<SlideProps> = ({ theme }) => {
     return (
         <IonSlide>
             <div className="Slide" onClick={showPlayer}>
-                <img className="Slide__image" src={theme.image} alt=""/>
+                <div className="Slide__image">
+                    <img src={theme.image} key={theme.image} alt="" />
+                </div>
                 <p className="Slide__text">{theme.title}</p>
             </div>
         </IonSlide>

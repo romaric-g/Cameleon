@@ -10,7 +10,7 @@ const Mood: React.FC = () => {
 
     fetchSpotify('https://api.spotify.com/v1/me/playlists', 
         (data) => {
-            setPlaylists(data.items)
+            if (data.items)setPlaylists(data.items)
         }
     )
 

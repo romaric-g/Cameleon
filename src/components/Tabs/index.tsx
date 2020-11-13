@@ -4,7 +4,7 @@ import { compass, folderOpen, search } from 'ionicons/icons';
 import { Redirect, Route } from 'react-router';
 import Home from '../../pages/Home/';
 import ThemeList from '../../pages/ThemeList/';
-import MusicPlayer from '../../pages/MusicPlayer';
+import MusicPlayer from '../../components/MusicPlayer';
 
 const Tabs: React.FC = () => {
   return (

@@ -1,1 +1,1 @@
-export const cameleonTokenKey = 'cameleon_token';
+export const cameleonTokenKey = 'spotify_token';

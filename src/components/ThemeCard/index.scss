@@ -1,0 +1,11 @@
+.ThemeCard {
+    
+    &__content {
+        font-family: 'Gotham', sans-serif!important;
+        color:white;
+        font-size: 20px;
+        position: absolute;
+        z-index: 1;
+        text-transform: capitalize
+    }
+}

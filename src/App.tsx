@@ -20,9 +20,15 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import AppContext from  './contexts/AppContext'
 import { Route } from 'react-router';
-import Auth from './pages/Auth';
 import MainLayout from './pages/MainLayout';
+import SpotifyProvider from './components/SpotifyProvider';
+import Models from './types/models';
+import useSpotify from './hooks/useSpotify';
+
+const spotifyClientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID || '';
+const spotifyRedirectUri = process.env.REACT_APP_SPOTIFY_REDIRECT_URI || ''
 
 setupConfig({
   rippleEffect: false,
@@ -31,22 +37,38 @@ setupConfig({
 
 const App: React.FC = () => {
   
+  const { fetchSpotify } = useSpotify()
+  const [themes, setThemes] = React.useState<Models.Theme[]>([]);
+
+  fetchSpotify('https://cameleon.romaricgauzi.com/themes', (data) => {
+    setThemes(
+      data.themes.map((theme: any) => {
+        return {
+          title: theme.title,
+          //https://cameleon.romaricgauzi.com/${theme.image}
+          image: `https://cameleon.romaricgauzi.com${theme.image}`
+        }
+      })
+    )
+  })
+
   return (
     <IonApp>
-      <IonReactRouter>
-        <IonRouterOutlet>
-          <Route path="/" component={MainLayout} />
-          <Route path="/auth" component={Auth} />
-        </IonRouterOutlet>
-      </IonReactRouter>
+      <AppContext.Provider value={{themes}}>
+        <SpotifyProvider
+          clientId={spotifyClientId}
+          redirectUri={spotifyRedirectUri}
+        >
+          <IonReactRouter>
+            <IonRouterOutlet>
+              <Route path="/" component={MainLayout} />
+              {/* <Route path="/auth" component={Auth} /> */}
+            </IonRouterOutlet>
+          </IonReactRouter>
+        </SpotifyProvider>
+      </AppContext.Provider>
     </IonApp>
   );
 }
-
-// function mapStateToProps(state: any) {
-//   return {
-//     spotifyToken: state.spotifyToken
-//   };
-// }
 
 export default (App);
