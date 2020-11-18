@@ -10,7 +10,6 @@ const Mood: React.FC = () => {
 
     fetchSpotify('https://api.spotify.com/v1/me/playlists', 
         (data) => {
-            console.log(data.items)
             if (data.items)setPlaylists(data.items)
         }
     )
@@ -21,7 +20,9 @@ const Mood: React.FC = () => {
                 <PlaylistPreview playlistPreview={{
                     title: playlist.name,
                     image: playlist.images[0].url,
-                    titleAmount: playlist.tracks.total
+                    titleAmount: playlist.tracks.total,
+                    id: playlist.id,
+                    uri: playlist.uri,
                 }} key={playlist.id} id={playlist.id}  />
             ))}
         </div>

@@ -13,16 +13,16 @@ import { heart } from "ionicons/icons";
 
 interface TrackPreviewProps {
   trackPreview: Models.Track;
-  hideLike?: boolean
+  hideLike?: boolean,
+  onClick?: () => void
 }
 
-const TrackPreview: React.FC<TrackPreviewProps> = ({trackPreview, hideLike}) => {
+const TrackPreview: React.FC<TrackPreviewProps> = ({trackPreview, hideLike, onClick}) => {
  
-
   return (
-    <IonItem lines="none" className="TrackPreview">
-      <div className="TrackPreview__start" slot="start">
-        <IonThumbnail slot="start">
+    <IonItem lines="none" className="TrackPreview" onClick={onClick}>
+      <div className="TrackPreview__start">
+        <IonThumbnail>
           <img
             src={trackPreview.image}
             alt=""

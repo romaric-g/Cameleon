@@ -1,20 +1,22 @@
-.Search ion-toolbar {
+
+.Search {
+
+  ion-toolbar {
     --background: transparent;
     font-size: 20px;
     font-family: "Gotham" !important;
     font-weight: normal;
-}
+  }
 
-
-.Search {
-
-  &__bar {
-    font-size: 20px!important;
-    font-family: "Gotham" !important;
-    font-weight: lighter!important;
-   --border-radius: 10 !important;
-   margin-bottom: 10px;
-
+  &__Header {
+    &__bar {
+      font-size: 20px!important;
+      font-family: "Gotham" !important;
+      font-weight: lighter!important;
+      --background: #EEE;
+      --color: #111;
+      margin-bottom: 10px;
+    }
   }
 
   &__trackresults {
@@ -30,7 +32,6 @@
   }
 
   &__artistresults {
-    margin-top: 20px;
     padding: 20px;
     display: flex;
     text-align: center;

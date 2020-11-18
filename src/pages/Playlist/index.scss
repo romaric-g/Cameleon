@@ -1,46 +1,31 @@
 .Playlist {
-    ion-content {
-      display: flex;
-      overflow: hidden;
-      z-index: 0 ;
-      --background: transparent;
-    }
-  
-    ion-header {
-      font-family: "designer" !important;
-      font-size: 36px;
-      text-align: center;
-      padding-top: 10px;
-      position: relative;
-      padding-bottom: 20px;
-      --background: transparent;
-    }
+  ion-content {
+    display: flex;
+    overflow: hidden;
+  }
 
-    &__titles {
-        font-size: 16px;
-        font-family: "Gotham" !important;
-        font-weight: lighter;
-    }
+  ion-header {
+    position: absolute;
+    z-index: 100;
+    font-family: "designer" !important;
+    font-size: 36px;
+    text-align: center;
+  }
 
-    &__lecture {
-        font-size: 12px;
-        font-family: "Gotham" !important;
-        font-weight: normal;
-        margin-top: 30px;
-        
-    }
-    
+  ion-toolbar {
+    --background: transparent;
+    --border-style: none;
+  }
+
+  &__infos {
+    text-align: center;
+    position: relative;
+    height: 180px;
+
     &__background  {  
-      height:100%;
-      overflow: hidden;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
       filter: blur(4px);
-      z-index: -1;
       background-color: black;
+      height: 100%;
   
       &__image {
         object-fit: cover;
@@ -49,13 +34,42 @@
         opacity: 0.5;
       }
     }
-  
-  
-    &__tracksList {
-      font-size: 16px;
-      font-family: "Gotham" !important;
-      font-weight: normal;
-      margin-top: 10px;
+
+    &__content {
+      position: absolute;
+      top: 0; 
+      left: 0; 
+      right: 0; 
+      bottom: 0;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+      &__name {
+        font-size: 1.8em;
+        margin: 20px 0;
+      }
+
+      &__titles {
+        font-size: 16px;
+        font-family: "Gotham" !important;
+        font-weight: lighter;
+      }
+    
+      &__lecture {
+        font-size: 12px;
+        font-family: "Gotham" !important;
+        font-weight: normal;
+      }
     }
   }
-  
+
+  &__tracksList {
+    font-size: 16px;
+    font-family: "Gotham" !important;
+    font-weight: normal;
+    margin-top: 10px;
+  }
+}

@@ -85,7 +85,7 @@ const MusicPlayer: React.FC = () => {
               <IonIcon icon={arrowDown} />
             </IonButton>
           </IonButtons>
-          <IonTitle>Triste</IonTitle>
+          <IonTitle>Ecoute en cours</IonTitle>
           <IonButtons slot="end">
             <IonButton onClick={() => setShowPlayer(false)}>
               <IonIcon icon={folderSharp} />
@@ -99,8 +99,8 @@ const MusicPlayer: React.FC = () => {
               <IonButton color="light"><IonIcon icon={add} /></IonButton>
               <IonButton color="light"><IonIcon icon={heartOutline} /></IonButton>
             </IonButtons>
-            <div>
-              <IonTitle color="light">{trackName}</IonTitle> 
+            <div className="MusicPlayer__trackInfos">
+              <IonText className="MusicPlayer__trackInfos__title" color="light">{trackName}</IonText> 
               <IonText color="light">{artist}</IonText> 
             </div>
           </div>

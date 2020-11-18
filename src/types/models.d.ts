@@ -12,6 +12,8 @@ declare namespace Models {
     image: string,
     titleAmount: number,
     tracks?: Track[],
+    id: string,
+    uri: string,
   }
 
   interface Artist {

@@ -12,6 +12,15 @@
     &__artist {
         font-size: 12px!important;
     }
+
+    &__trackInfos {
+        text-align: center;
+
+        &__title {
+            display: block;
+            font-size: 1.5em;
+        }
+    }
 }
 
 ion-modal ion-toolbar {
@@ -24,17 +33,19 @@ ion-modal ion-title {
 
 ion-modal .backimage {
     position: absolute;
+    background-color: black;
     filter: blur(13px);
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-}
 
-ion-modal .backimage img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
+    img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        opacity: 0.5;
+    }
 }
 
 ion-modal ion-content {

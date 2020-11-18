@@ -6,43 +6,64 @@
     display: flex;
   }
 
-  &__cover {
-    margin-left: auto;
-    margin-right: auto;
-    size: 97px !important;
-    max-width: 97px !important;
-    align-content: center;
-    display: block;
-    width: 97px;
-        height: 97px;
-  }
-
   ion-header {
+    position: absolute;
     font-family: "Gotham" !important;
     font-weight: lighter;
     font-size: 36px;
     text-align: center;
-    padding-top: 10px;
-    position: relative;
-    padding-bottom: 20px;
-    
   }
-  
-  &__background  {  
-    height:100%;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    filter: blur(4px);
 
-    &__image {
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
+  ion-toolbar {
+    --background: transparent;
+    --border-style: none;
+  }
+
+  &__infos {
+    position: relative;
+    height: 220px;
+      
+    &__background  {  
+      height:100%;
+      overflow: hidden;
+
+      filter: blur(4px);
+
+      &__image {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    &__content {
+      position: absolute;
+      padding: 20px 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &__cover {
+        margin-left: auto;
+        margin-right: auto;
+        size: 97px !important;
+        max-width: 97px !important;
+        align-content: center;
+        display: block;
+        width: 97px;
+        height: 97px;
+        z-index: 10;
+      }
+
+      &__name {
+        margin-top: 10px;
+        font-size: 1.8em;
+      }
     }
   }
 
@@ -56,6 +77,11 @@
       margin-top: 10px;
       display: flex;
       padding-left:20px;
+      overflow: auto;
+      
+      & > * {
+        flex-shrink: 0;
+      }
     }
   }
 
