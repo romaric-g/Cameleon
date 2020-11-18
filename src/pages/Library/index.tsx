@@ -2,7 +2,7 @@ import { IonContent, IonHeader, IonLabel, IonPage, IonSegment, IonSegmentButton,
 import React from 'react';
 import Like from './Like';
 import Mood from './Mood';
-import './index.css';
+import './index.scss';
 
 const Library: React.FC = () => {
 
@@ -14,9 +14,8 @@ const Library: React.FC = () => {
   const slideOpts = {
     initialSlide: 0,
     speed: 400,
+    autoHeight: false,
   };
-
-  console.log(slidesRef.current)
 
   const onSegmentChange = React.useCallback( (event: CustomEvent ) => {
     let value = event.detail.value;
@@ -56,12 +55,12 @@ const Library: React.FC = () => {
           </IonSegmentButton>
         </IonSegment>
       </IonHeader>
-      <IonContent>
-        <IonSlides options={slideOpts} ref={slidesRef} onIonSlideWillChange={onSlideChange}>
-          <IonSlide>
+      <IonContent className="Library__content">
+        <IonSlides className="Library__content__slider" options={slideOpts} ref={slidesRef} onIonSlideWillChange={onSlideChange}>
+          <IonSlide className="Library__content__page">
             <Mood/>
           </IonSlide>
-          <IonSlide>
+          <IonSlide className="Library__content__page">
             <Like />
           </IonSlide>
         </IonSlides>

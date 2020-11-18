@@ -1,12 +1,8 @@
 import {
-  IonButton,
-  IonButtons,
-  IonIcon,
   IonItem,
   IonText,
   IonThumbnail,
 } from "@ionic/react";
-import { ellipsisVertical } from "ionicons/icons";
 import React from "react";
 import { useHistory } from "react-router";
 import Models from "../../types/models";
@@ -26,8 +22,8 @@ const PlaylistPreview: React.FC<PlaylistPreviewProps> = ({playlistPreview, id })
   }, [history, id])
 
   return (
-    <IonItem lines="none" className="PlaylistPreview" onClick={openPlaylist}>
-      <div className="PlaylistPreview__start" slot="start">
+    <IonItem button lines="none" className="PlaylistPreview" onClick={openPlaylist}>
+      <div className="PlaylistPreview__start">
         <IonThumbnail>
           <img
             src={playlistPreview.image}
@@ -39,11 +35,6 @@ const PlaylistPreview: React.FC<PlaylistPreviewProps> = ({playlistPreview, id })
           <IonText>{playlistPreview.titleAmount} titre{playlistPreview.titleAmount > 1 && "s"}</IonText>
         </div>
       </div>
-      <IonButtons slot="end">
-        <IonButton>
-            <IonIcon icon={ellipsisVertical} />
-        </IonButton>
-      </IonButtons>
     </IonItem>
   );
 };

@@ -19,17 +19,16 @@ const useSpotify = () => {
     React.useEffect(() => {
         let headers = new Headers();
         headers.append('Authorization', `Bearer ${token}`)
-        fetchsOptions.current.forEach(async (fetchOptions) => {
-            await fetch(fetchOptions.url, { 
+        fetchsOptions.current.forEach((fetchOptions) => {
+            fetch(fetchOptions.url, { 
                 method: 'GET',
                 headers,
             })
             .then(response => response.json())
             .then(data => {
                 if(!data.error) {
-                    return fetchOptions.saveData(data)
+                    fetchOptions.saveData(data)
                 }
-                //window.location.replace(`https://cameleon.romaricgauzi.com/login?source=${window.location.origin}`);
             })
         });
 

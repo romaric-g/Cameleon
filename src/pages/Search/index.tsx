@@ -16,12 +16,10 @@ const Search: React.FC = () => {
   useEffect(() => {
     const searchTracks = async () => {
       const results = await spotifyApi.searchTracks(searchText, { limit: 5 })
-      console.log(results)
       setTracks(results.tracks.items)
     }
     const searchArtists = async () => {
       const results = await spotifyApi.searchArtists(searchText, { limit: 5 })
-      console.log(results)
       setArtist(results.artists.items)
     }
     searchTracks();
@@ -34,19 +32,9 @@ const Search: React.FC = () => {
         <IonToolbar>
           <IonTitle>RECHERCHE</IonTitle>
         </IonToolbar>
+        <IonSearchbar className="Search__Header__bar" placeholder="Que recherchez-vous ?" onIonChange={e => setSearchText(e.detail.value!)}> </IonSearchbar>
       </IonHeader>
       <IonContent>
-        <IonSearchbar className="Search__bar" placeholder="Que recherchez-vous ?" onIonChange={e => setSearchText(e.detail.value!)}> </IonSearchbar>
-        <div className="Search__trackresults">
-          { tracks.map((track) => (
-            <Track hideLike trackPreview={{
-              title: track.name,
-              image: track.album.images && track.album.images[2].url,
-              artist_name: track.artists[0].name,
-              artist_id: track.artists[0].id,
-            }} key={track.artists[0].id} />
-          ))}
-        </div>
         <div className="Search__artistresults">
           { artists.map((artist) => (
             <Artist artist={{
@@ -56,6 +44,17 @@ const Search: React.FC = () => {
             }} key={artist.id} />
           ))}
         </div>
+        <div className="Search__trackresults">
+          { tracks.map((track, index) => (
+            <Track hideLike trackPreview={{
+              title: track.name,
+              image: track.album.images && track.album.images[2].url,
+              artist_name: track.artists[0].name,
+              artist_id: track.artists[0].id,
+            }} key={index} />
+          ))}
+        </div>
+
       </IonContent>
     </IonPage>
   );

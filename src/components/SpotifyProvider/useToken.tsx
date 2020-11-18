@@ -38,7 +38,9 @@ const useToken = ({ clientId, redirectUri }: {clientId: String, redirectUri: Str
         'playlist-read-private',
         'user-library-read',
         'user-read-email',
-        'user-read-private'
+        'user-read-private',
+        'user-library-read',
+        'user-library-modify'
       ]
 
 

@@ -12,6 +12,7 @@
 .PlaylistPreview__texts {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin-left: 20px;
     font-family: 'Gotham'!important;
     font-weight: normal;

@@ -25,3 +25,25 @@
     font-family: "Gotham" !important;
     font-weight: normal;
   }
+
+
+.Library {
+
+  &__content {
+    position: relative;
+
+    &__slider {
+      height: 100%;
+    }
+
+    &__page {
+      height: 100%;
+
+      & > * {
+        height: 100%;
+        overflow-y: auto;
+      }
+    }
+
+  }
+}

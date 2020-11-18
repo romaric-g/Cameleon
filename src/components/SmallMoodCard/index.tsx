@@ -1,21 +1,19 @@
-import {IonThumbnail, IonTitle } from "@ionic/react";
+import {IonText } from "@ionic/react";
 import React from "react";
 import Models from "../../types/models";
 import "./index.scss"
 
 interface SmallMoodCardsProps {
-  mood: Models.Mood;
+  theme: Models.Theme,
+  onClick?: () => void
 }
 
-const SmallMoodCard: React.FC<SmallMoodCardsProps> = ({ mood }) => {
+const SmallMoodCard: React.FC<SmallMoodCardsProps> = ({ theme, onClick }) => {
   return (
-    <div className="SmallMoodCard">
-      <div>
-      <IonTitle>{mood.name}</IonTitle>
-        <IonThumbnail>
-          <img src={mood.image} alt="" />
-          <IonTitle>{mood.name}</IonTitle>
-        </IonThumbnail>
+    <div className="SmallMoodCard" onClick={onClick}>
+      <IonText className="SmallMoodCard__title">{theme.title}</IonText>
+      <div className="SmallMoodCard__background">
+          <img src={theme.image} alt="" />
       </div>
     </div>
   );

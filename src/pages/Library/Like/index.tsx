@@ -6,13 +6,10 @@ import "./index.css";
 
 const Track: React.FC = () => {
 
-
-
     const { fetchSpotify} = useSpotify();
     const [ tracks, setTracks ] = React.useState<Models.Track[]>([]);
 
     fetchSpotify("https://api.spotify.com/v1/me/tracks?limit=50", (data) => {
-        console.log(data)
         setTracks(
             data.items.map((track: any) => ({
                 title: track.track.name,
@@ -26,8 +23,8 @@ const Track: React.FC = () => {
   return (
     <div className="Track">
         <div className="Playlist__tracksList ion-text-center">
-            {tracks.map((track) => (
-            <TrackPreview trackPreview={track} />
+            {tracks.map((track, index) => (
+            <TrackPreview trackPreview={track} key={index}/>
             ))}
         </div>
     </div>
